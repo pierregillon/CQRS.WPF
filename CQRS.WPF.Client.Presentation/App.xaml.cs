@@ -10,8 +10,8 @@ namespace CQRS.WPF.Client.Presentation
         {
             base.OnStartup(e);
 
-            //Ioc.Instance.Init(new LocalDataAccess.ServiceRegistry());
-            Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry());
+            Ioc.Instance.Init(new LocalDataAccess.ServiceRegistry());
+            //Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry());
 
             ((ViewModelLocator)Current.Resources["Locator"]).CustomerListViewModel.Boot();
         }

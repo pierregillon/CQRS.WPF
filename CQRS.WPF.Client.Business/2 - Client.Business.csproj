@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CustomerListService.cs" />
     <Compile Include="Services\ICustomerListService.cs" />
     <Compile Include="Services\IServiceRegistry.cs" />
     <Compile Include="Ioc.cs" />

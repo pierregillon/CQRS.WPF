@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using CQRS.WPF.Client.Business.Services;
 using CQRS.WPF.EndPoint.Contracts;
 using CQRS.WPF.EndPoint.Contracts.Services;
 
-namespace CQRS.WPF.Client.LocalDataAccess.Services
+namespace CQRS.WPF.Client.Business.Services
 {
     public class CustomerListService : ICustomerListService
     {

@@ -1,5 +1,4 @@
 ﻿using CQRS.WPF.Client.Business.Services;
-using CQRS.WPF.Client.RemoteDataAccess.Services;
 using CQRS.WPF.EndPoint.Contracts.Services;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -10,7 +9,6 @@ namespace CQRS.WPF.Client.RemoteDataAccess
         public void RegisterService()
         {
             SimpleIoc.Default.Register<ICustomerService, CustomerServiceClient>();
-            SimpleIoc.Default.Register<ICustomerListService, CustomerListService>();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace CQRS.WPF.Client.Business
         {
             serviceRegistry.RegisterService();
 
+            SimpleIoc.Default.Register<ICustomerListService, CustomerListService>();
             SimpleIoc.Default.Register<CustomerListViewModel>();
         }
     }
