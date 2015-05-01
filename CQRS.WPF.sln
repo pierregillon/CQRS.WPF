@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Business", "CQRS.WPF.Client.Business\Client.Business.csproj", "{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Business", "CQRS.WPF.Client.Business\2 - Client.Business.csproj", "{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.LocalDataAccess", "CQRS.WPF.Client.LocalDataAccess\Client.LocalDataAccess.csproj", "{BA32A190-36E1-4075-8748-155957BA6768}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.LocalDataAccess", "CQRS.WPF.Client.LocalDataAccess\3 - Client.LocalDataAccess.csproj", "{BA32A190-36E1-4075-8748-155957BA6768}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Presentation", "CQRS.WPF.Client.Presentation\Client.Presentation.csproj", "{424564C3-201A-4A5C-834F-87B67C4BEF9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Client.Presentation", "CQRS.WPF.Client.Presentation\1 - Client.Presentation.csproj", "{424564C3-201A-4A5C-834F-87B67C4BEF9D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF Client", "WPF Client", "{555EB340-BCB0-4EEE-9AF6-3C0721425040}"
 EndProject
@@ -23,9 +23,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManagement.Persiste
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{3534A28A-4716-4028-8A5B-A20FC6F9E886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "CQRS.WPF.Server\Server.csproj", "{1AE4B14B-144C-4870-85DE-0DF0EE2035DD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoint", "Endpoint", "{3ADBA989-7E60-401C-B72F-48BE362AFBFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.RemoteDataAccess", "CQRS.WPF.Client.RemoteDataAccess\3 - Client.RemoteDataAccess.csproj", "{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.WPF.WebHosting", "CQRS.WPF.WebHosting\CQRS.WPF.WebHosting.csproj", "{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +63,14 @@ Global
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1AE4B14B-144C-4870-85DE-0DF0EE2035DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1AE4B14B-144C-4870-85DE-0DF0EE2035DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1AE4B14B-144C-4870-85DE-0DF0EE2035DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1AE4B14B-144C-4870-85DE-0DF0EE2035DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{73D9079D-5522-414D-8159-2D04F8D81572} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
 		{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF} = {4233BAD1-0039-4870-BA61-EC115048E263}
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B} = {4233BAD1-0039-4870-BA61-EC115048E263}
-		{1AE4B14B-144C-4870-85DE-0DF0EE2035DD} = {3534A28A-4716-4028-8A5B-A20FC6F9E886}
+		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
+		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0} = {3534A28A-4716-4028-8A5B-A20FC6F9E886}
 	EndGlobalSection
 EndGlobal

@@ -2,6 +2,7 @@
 using System.Linq;
 using CQRS.WPF.CustomerManagement.Presentation;
 using CQRS.WPF.EndPoint.Contracts;
+using CQRS.WPF.EndPoint.Contracts.Services;
 
 namespace CQRS.WPF.EndPoint.Services
 {

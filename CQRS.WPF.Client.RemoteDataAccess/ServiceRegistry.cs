@@ -1,18 +1,16 @@
 ﻿using CQRS.WPF.Client.Business.Services;
-using CQRS.WPF.Client.LocalDataAccess.Services;
+using CQRS.WPF.Client.RemoteDataAccess.Services;
 using CQRS.WPF.EndPoint.Contracts.Services;
 using GalaSoft.MvvmLight.Ioc;
 
-namespace CQRS.WPF.Client.LocalDataAccess
+namespace CQRS.WPF.Client.RemoteDataAccess
 {
     public class ServiceRegistry : IServiceRegistry
     {
         public void RegisterService()
         {
+            SimpleIoc.Default.Register<ICustomerService, CustomerServiceClient>();
             SimpleIoc.Default.Register<ICustomerListService, CustomerListService>();
-            SimpleIoc.Default.Register(EndPoint.Ioc.Instance.GetInstance<ICustomerService>);
-
-            EndPoint.Ioc.Instance.Init();
         }
     }
 }

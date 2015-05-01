@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using CQRS.WPF.Client.Business;
 using CQRS.WPF.Client.Business.ViewModels;
-using CQRS.WPF.Client.LocalDataAccess;
 
 namespace CQRS.WPF.Client.Presentation
 {
@@ -11,7 +10,8 @@ namespace CQRS.WPF.Client.Presentation
         {
             base.OnStartup(e);
 
-            Ioc.Instance.Init(new ServiceRegistry());
+            //Ioc.Instance.Init(new LocalDataAccess.ServiceRegistry());
+            Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry());
 
             ((ViewModelLocator)Current.Resources["Locator"]).CustomerListViewModel.Boot();
         }

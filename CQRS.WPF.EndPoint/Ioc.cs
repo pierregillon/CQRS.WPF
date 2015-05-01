@@ -1,8 +1,9 @@
-﻿using CQRS.WPF.CustomerManagement.Infrastructure;
+﻿using System;
+using CQRS.WPF.CustomerManagement.Infrastructure;
 using CQRS.WPF.CustomerManagement.Persistence.Finders;
 using CQRS.WPF.CustomerManagement.Persistence.Repositories;
 using CQRS.WPF.CustomerManagement.Presentation;
-using CQRS.WPF.EndPoint.Contracts;
+using CQRS.WPF.EndPoint.Contracts.Services;
 using CQRS.WPF.EndPoint.Services;
 using SimpleInjector;
 
@@ -27,6 +28,10 @@ namespace CQRS.WPF.EndPoint
         public T GetInstance<T>() where T : class
         {
             return _container.GetInstance<T>();
+        }
+        public object GetInstance(Type type)
+        {
+            return _container.GetInstance(type);
         }
     }
 }
