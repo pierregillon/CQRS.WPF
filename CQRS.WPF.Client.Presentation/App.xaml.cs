@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using CQRS.WPF.Client.Business;
+using CQRS.WPF.Client.Business.ViewModels;
+using CQRS.WPF.Client.LocalDataAccess;
 
 namespace CQRS.WPF.Client.Presentation
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            Ioc.Instance.Init(new ServiceRegistry());
+
+            ((ViewModelLocator)Current.Resources["Locator"]).CustomerListViewModel.Boot();
+        }
     }
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06647BE1-166B-429C-95E4-B49EB6C9F08C}</ProjectGuid>
+    <ProjectGuid>{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CQRS.WPF.Application</RootNamespace>
-    <AssemblyName>CQRS.WPF.Application</AssemblyName>
+    <RootNamespace>CQRS.WPF.CustomerManagement</RootNamespace>
+    <AssemblyName>CQRS.WPF.CustomerManagement</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Customer.cs" />
+    <Compile Include="Domain\CustomerId.cs" />
+    <Compile Include="Infrastructure\ICustomerRepository.cs" />
+    <Compile Include="Presentation\CustomerListItemDto.cs" />
+    <Compile Include="Presentation\ICustomerListFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
