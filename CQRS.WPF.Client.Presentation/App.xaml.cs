@@ -9,10 +9,11 @@ namespace CQRS.WPF.Client.Presentation
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
+#if DEBUG
             Ioc.Instance.Init(new LocalDataAccess.ServiceRegistry());
-            //Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry());
-
+#else
+            Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry());
+#endif
             ((ViewModelLocator)Current.Resources["Locator"]).CustomerListViewModel.Boot();
         }
     }
