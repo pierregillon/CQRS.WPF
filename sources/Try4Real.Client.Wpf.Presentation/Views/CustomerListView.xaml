@@ -7,7 +7,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
              d:DesignHeight="163.2" d:DesignWidth="516.8"
-             DataContext="{Binding Source={StaticResource Locator}, Path=CustomerListViewModel}">
+             d:DataContext="{Binding Source={StaticResource Locator}, Path=CustomerListViewModel}">
     <xctk:BusyIndicator IsBusy="{Binding Path=IsLoading, Mode=TwoWay}" BusyContent="Loading ...">
         <Grid>
             <Grid.RowDefinitions>
