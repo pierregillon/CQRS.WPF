@@ -153,9 +153,9 @@
       <Project>{BA32A190-36E1-4075-8748-155957BA6768}</Project>
       <Name>3 - Client.Wpf.LocalDataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Try4Real.Client.Wpf.RemoteDataAccess\3 - Client.Wpf.RemoteDataAccess.csproj">
+    <ProjectReference Include="..\Try4Real.Client.Wpf.RemoteDataAccess\Client.Wpf.RemoteDataAccess.csproj">
       <Project>{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}</Project>
-      <Name>3 - Client.Wpf.RemoteDataAccess</Name>
+      <Name>Client.Wpf.RemoteDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
