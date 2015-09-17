@@ -20,5 +20,9 @@ namespace Try4Real.Client.Wpf.RemoteDataAccess
         {
             Channel.CreateCustomer(firstName, lastName, birthDate, email);
         }
+        public CustomerDetails GetCustomerDetails(Guid customerId)
+        {
+            return Channel.GetCustomerDetails(customerId);
+        }
     }
 }

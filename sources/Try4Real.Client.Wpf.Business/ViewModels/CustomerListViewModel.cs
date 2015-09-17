@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 using Try4Real.EndPoint.Contracts;
@@ -10,6 +11,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
 {
     public class CustomerListViewModel : LoadingViewModelBase, IViewModelTab
     {
+        private readonly IMessenger _messenger;
         private readonly ICustomerListService _customerListService;
 
         public string Title { get { return "Customer list"; } }
@@ -31,13 +33,14 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         public ICommand OpenCustomerDetailsCommand { get; private set; }
 
         // ----- Constructors
-        public CustomerListViewModel(ICustomerListService customerListService)
+        public CustomerListViewModel(IMessenger messenger, ICustomerListService customerListService)
         {
+            _messenger = messenger;
             _customerListService = customerListService;
             CreateCustomerCommand = new RelayCommand(CreateCustomer);
             RefreshCommand = new RelayCommand(RefreshCustomerList);
             DeleteCustomerCommand = new RelayCommand<CustomerListItem>(DeleteCustomer);
-            OpenCustomerDetailsCommand = new RelayCommand(OpenCustomerDetails, CanOpenCustomerDetails);
+            OpenCustomerDetailsCommand = new RelayCommand<CustomerListItem>(OpenCustomerDetails);
         }
 
         // ----- Overrides
@@ -59,18 +62,14 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
 
             RefreshCustomerList();
         }
-        private void DeleteCustomer(CustomerListItem customerListItemViewModel)
+        private void DeleteCustomer(CustomerListItem customerListItem)
         {
-            //_customerListService.DeleteCustomer(customerListItemViewModel.Id);
-            Customers.Remove(customerListItemViewModel);
+            //_customerListService.DeleteCustomer(customerListItem.Id);
+            Customers.Remove(customerListItem);
         }
-        private bool CanOpenCustomerDetails()
+        private void OpenCustomerDetails(CustomerListItem customerListItem)
         {
-            return SelectedCustomer != null;
-        }
-        private void OpenCustomerDetails()
-        {
-            //Messenger.Default.Send(new OpenCustomerDetailsMessage(SelectedCustomer.Id));
+            _messenger.Send(new OpenCustomerDetailsMessage(customerListItem.Id));
         }
         private async void RefreshCustomerList()
         {

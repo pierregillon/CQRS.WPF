@@ -12,5 +12,8 @@ namespace Try4Real.EndPoint.Contracts.Services
 
         [OperationContract]
         void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email);
+        
+        [OperationContract]
+        CustomerDetails GetCustomerDetails(Guid customerId);
     }
 }

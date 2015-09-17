@@ -46,6 +46,7 @@
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Domain\CustomerId.cs" />
     <Compile Include="Infrastructure\ICustomerRepository.cs" />
+    <Compile Include="Presentation\CustomerDetails.cs" />
     <Compile Include="Presentation\CustomerListItemDto.cs" />
     <Compile Include="Presentation\ICustomerListFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

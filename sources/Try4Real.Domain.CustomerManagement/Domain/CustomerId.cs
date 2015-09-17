@@ -15,5 +15,18 @@ namespace Try4Real.Domain.CustomerManagement.Domain
         {
             return new CustomerId(Guid.NewGuid());
         }
+        public static CustomerId From(Guid id)
+        {
+            return new CustomerId(id);
+        }
+
+        public static bool operator ==(CustomerId id, CustomerId id2)
+        {
+            return id.Equals(id2);
+        }
+        public static bool operator !=(CustomerId id, CustomerId id2)
+        {
+            return !(id == id2);
+        }
     }
 }

@@ -9,6 +9,9 @@
         <DataTemplate DataType="{x:Type viewModels:CustomerListViewModel}">
             <views:CustomerListView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CustomerDetailViewModel}">
+            <views:CustomerDetailView/>
+        </DataTemplate>
     </Window.Resources>
     <TabControl ItemsSource="{Binding Path=Tabs, Mode=OneWay}" SelectedItem="{Binding Path=SelectedTab, Mode=TwoWay}">
         <TabControl.ItemContainerStyle>

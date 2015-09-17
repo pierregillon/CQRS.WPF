@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels;
 
@@ -17,8 +18,13 @@ namespace Try4Real.Client.Wpf.Business
             serviceRegistry.RegisterService();
 
             SimpleIoc.Default.Register<ICustomerListService, CustomerListService>();
+            SimpleIoc.Default.Register<ICustomerDetailService, CustomerDetailService>();
+
             SimpleIoc.Default.Register<CustomerListViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<CustomerDetailViewModel>();
+
+            SimpleIoc.Default.Register(()=>Messenger.Default);
         }
     }
 }
