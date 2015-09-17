@@ -20,8 +20,9 @@
                       SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=FirstName}" Width="0.2*" />
-                    <DataGridTextColumn Binding="{Binding Path=LastName}" Width="0.2*" />
+                    <DataGridTextColumn Binding="{Binding Path=FullName}" Width="0.5*" />
+                    <DataGridTextColumn Binding="{Binding Path=YearOld}" Width="0.2*" />
+                    <DataGridTextColumn Binding="{Binding Path=Email}" Width="0.2*" />
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

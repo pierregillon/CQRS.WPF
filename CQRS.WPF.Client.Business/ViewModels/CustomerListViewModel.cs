@@ -52,11 +52,13 @@ namespace CQRS.WPF.Client.Business.ViewModels
         private void CreateCustomer()
         {
             var random = new Random((int) DateTime.Now.Ticks);
-            //_customerListService.CreateCustomer(
-            //    random.Next(100, 10000).ToString(),
-            //    random.Next(100, 10000).ToString(),
-            //    DateTime.Now,
-            //    random.Next(100, 10000) + "@gmail.com");
+            
+            _customerListService.CreateCustomer(
+                "FirstName" + random.Next(0, 50),
+                "LastName" + random.Next(0, 50),
+                DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, 50 * 365))),
+                random.Next(100, 10000) + "@gmail.com");
+
             RefreshCustomerList();
         }
         private void DeleteCustomer(CustomerListItem customerListItemViewModel)

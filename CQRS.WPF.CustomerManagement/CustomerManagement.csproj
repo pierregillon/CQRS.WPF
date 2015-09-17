@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CreateCustomerCommand.cs" />
+    <Compile Include="Application\CreateCustomerCommandHandler.cs" />
+    <Compile Include="Application\Base\ICommand.cs" />
+    <Compile Include="Application\Base\ICommandHandler.cs" />
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Domain\CustomerId.cs" />
     <Compile Include="Infrastructure\ICustomerRepository.cs" />

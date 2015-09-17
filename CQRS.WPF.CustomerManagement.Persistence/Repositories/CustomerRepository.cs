@@ -6,9 +6,16 @@ namespace CQRS.WPF.CustomerManagement.Persistence.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
+        private readonly IDatabase _database;
+
+        public CustomerRepository(IDatabase database)
+        {
+            _database = database;
+        }
+
         public void Add(Customer customer)
         {
-            throw new NotImplementedException();
+            _database.Set<Customer>().Add(customer);
         }
         public void Update(Customer customer)
         {

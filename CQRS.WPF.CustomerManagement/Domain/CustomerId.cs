@@ -10,5 +10,10 @@ namespace CQRS.WPF.CustomerManagement.Domain
         {
             Value = value;
         }
+
+        public static CustomerId New()
+        {
+            return new CustomerId(Guid.NewGuid());
+        }
     }
 }
