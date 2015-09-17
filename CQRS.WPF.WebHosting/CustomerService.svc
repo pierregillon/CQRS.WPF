@@ -1,6 +1,0 @@
-﻿<%@ ServiceHost 
-    Language="C#" 
-    Debug="true" 
-    Service="CQRS.WPF.EndPoint.Services.CustomerService" 
-    Factory="CQRS.WPF.WebHosting.DependencyInjection.DependencyInjectionHostFactory" 
-%>
