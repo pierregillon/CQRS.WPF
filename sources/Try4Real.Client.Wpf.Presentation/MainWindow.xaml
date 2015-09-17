@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:Try4Real.Client.Wpf.Presentation.Views"
         xmlns:viewModels="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels;assembly=Try4Real.Client.Wpf.Business"
-        Title="Customer list view" Height="350" Width="525"
+        Title="Customer application" Height="350" Width="525"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:CustomerListViewModel}">

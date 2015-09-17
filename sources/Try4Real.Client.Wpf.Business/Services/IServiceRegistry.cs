@@ -1,7 +1,9 @@
-﻿namespace Try4Real.Client.Wpf.Business.Services
+﻿using SimpleInjector;
+
+namespace Try4Real.Client.Wpf.Business.Services
 {
     public interface IServiceRegistry
     {
-        void RegisterService();
+        void RegisterService(Container container);
     }
 }

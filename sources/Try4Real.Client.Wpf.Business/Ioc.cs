@@ -1,5 +1,7 @@
-﻿using GalaSoft.MvvmLight.Ioc;
+﻿using System;
+using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
+using SimpleInjector;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels;
 
@@ -13,18 +15,32 @@ namespace Try4Real.Client.Wpf.Business
             get { return _instance; }
         }
 
+        private readonly Container _container;
+
+        public Ioc()
+        {
+            _container = new Container();
+        }
+
         public void Init(IServiceRegistry serviceRegistry)
         {
-            serviceRegistry.RegisterService();
+            serviceRegistry.RegisterService(_container);
 
-            SimpleIoc.Default.Register<ICustomerListService, CustomerListService>();
-            SimpleIoc.Default.Register<ICustomerDetailService, CustomerDetailService>();
+            _container.RegisterSingleton<ICustomerListService, CustomerListService>();
+            _container.RegisterSingleton<ICustomerDetailService, CustomerDetailService>();
 
-            SimpleIoc.Default.Register<CustomerListViewModel>();
-            SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<CustomerDetailViewModel>();
+            _container.RegisterSingleton<CustomerListViewModel>();
+            _container.RegisterSingleton<MainViewModel>();
+            _container.RegisterSingleton<CustomerDetailViewModel>();
 
-            SimpleIoc.Default.Register(()=>Messenger.Default);
+            _container.RegisterSingleton(() => Messenger.Default);
+
+            _container.RegisterSingleton(typeof(IViewModelFactory<>), typeof(ViewModelFactory<>));
+        }
+
+        public T GetInstance<T>() where T : class
+        {
+            return _container.GetInstance<T>();
         }
     }
 }

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Messaging;
-using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 
 namespace Try4Real.Client.Wpf.Business.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly IMessenger _messenger;
-        private readonly ICustomerListService _customerListService;
-        private readonly ICustomerDetailService _customerDetailService;
+        private readonly IViewModelFactory<CustomerListViewModel> _customerListViewModelFactory;
+        private readonly IViewModelFactory<CustomerDetailViewModel> _customerDetailViewModelFactory;
 
         public ObservableCollection<IViewModelTab> Tabs
         {
@@ -23,24 +20,29 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             set { SetNotifiableProperty("SelectedTab", value); }
         }
 
-        public MainViewModel(IMessenger messenger, ICustomerListService customerListService, ICustomerDetailService customerDetailService)
+        public MainViewModel(
+            IMessenger messenger, 
+            IViewModelFactory<CustomerListViewModel> customerListViewModelFactory, 
+            IViewModelFactory<CustomerDetailViewModel> customerDetailViewModelFactory)
         {
-            _messenger = messenger;
-            _customerListService = customerListService;
-            _customerDetailService = customerDetailService;
+            _customerListViewModelFactory = customerListViewModelFactory;
+            _customerDetailViewModelFactory = customerDetailViewModelFactory;
+            
             Tabs = new ObservableCollection<IViewModelTab>();
 
-            _messenger.Register<OpenCustomerDetailsMessage>(this, OpenCustomerDetailsMessageReceived);
+            messenger.Register<OpenCustomerDetailsMessage>(this, OpenCustomerDetailsMessageReceived);
         }
 
         public void Boot()
         {
-            Tabs.Add(new CustomerListViewModel(_messenger, _customerListService));
+            var viewModel = _customerListViewModelFactory.Build();
+            Tabs.Add(viewModel);
+            viewModel.Boot();
         }
 
         private void OpenCustomerDetailsMessageReceived(OpenCustomerDetailsMessage openCustomerDetailsMessage)
         {
-            var detailViewModel = new CustomerDetailViewModel(_customerDetailService);
+            var detailViewModel = _customerDetailViewModelFactory.Build();
             detailViewModel.Boot(openCustomerDetailsMessage.CustomerId);
             Tabs.Add(detailViewModel);
             SelectedTab = detailViewModel;
