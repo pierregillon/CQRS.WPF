@@ -8,14 +8,12 @@ using Try4Real.EndPoint.Contracts;
 
 namespace Try4Real.Client.Wpf.Business.ViewModels
 {
-    public class CustomerListViewModel : LoadingViewModelBase
+    public class CustomerListViewModel : LoadingViewModelBase, IViewModelTab
     {
         private readonly ICustomerListService _customerListService;
 
-        public string TabHeader
-        {
-            get { return "Customer list"; }
-        }
+        public string Title { get { return "Customer list"; } }
+        public bool CanClose { get { return false; } }
         public bool IsClosable { get { return false; } }
         public ObservableCollection<CustomerListItem> Customers
         {

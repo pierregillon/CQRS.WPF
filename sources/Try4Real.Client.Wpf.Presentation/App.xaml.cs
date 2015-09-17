@@ -14,7 +14,7 @@ namespace Try4Real.Client.Wpf.Presentation
 #else
             Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry());
 #endif
-            ((ViewModelLocator)Current.Resources["Locator"]).CustomerListViewModel.Boot();
+            ((ViewModelLocator)Current.Resources["Locator"]).MainViewModel.Boot();
         }
     }
 }

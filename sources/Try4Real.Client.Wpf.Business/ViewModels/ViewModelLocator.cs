@@ -8,5 +8,9 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         {
             get { return SimpleIoc.Default.GetInstance<CustomerListViewModel>(); }
         }
+        public MainViewModel MainViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<MainViewModel>(); }
+        }
     }
 }

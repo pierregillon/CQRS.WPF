@@ -18,6 +18,7 @@ namespace Try4Real.Client.Wpf.Business
 
             SimpleIoc.Default.Register<ICustomerListService, CustomerListService>();
             SimpleIoc.Default.Register<CustomerListViewModel>();
+            SimpleIoc.Default.Register<MainViewModel>();
         }
     }
 }
