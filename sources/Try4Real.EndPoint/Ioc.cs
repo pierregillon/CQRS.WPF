@@ -1,11 +1,12 @@
 ﻿using System;
 using SimpleInjector;
 using SimpleInjector.Extensions;
-using Try4Real.Domain.CustomerManagement.Application.Base;
-using Try4Real.Domain.CustomerManagement.Infrastructure;
-using Try4Real.Domain.CustomerManagement.Infrastructure.Finders;
-using Try4Real.Domain.CustomerManagement.Infrastructure.Repositories;
-using Try4Real.Domain.CustomerManagement.Presentation;
+using Try4Real.Domain.Commands.Base;
+using Try4Real.Domain.Infrastructure;
+using Try4Real.Domain.Infrastructure.Finders;
+using Try4Real.Domain.Infrastructure.Repositories;
+using Try4Real.Domain.Model.User;
+using Try4Real.Domain.Presentation;
 using Try4Real.EndPoint.Contracts.Services;
 using Try4Real.EndPoint.Services;
 

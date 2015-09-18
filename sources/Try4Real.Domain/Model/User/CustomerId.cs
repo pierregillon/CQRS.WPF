@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Try4Real.Domain.CustomerManagement.Domain
+namespace Try4Real.Domain.Model.User
 {
     public struct CustomerId
     {

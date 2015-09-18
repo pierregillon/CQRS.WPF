@@ -1,7 +1,7 @@
-﻿using Try4Real.Domain.CustomerManagement.Application.Base;
-using Try4Real.Domain.CustomerManagement.Infrastructure;
+﻿using Try4Real.Domain.Commands.Base;
+using Try4Real.Domain.Model.User;
 
-namespace Try4Real.Domain.CustomerManagement.Application
+namespace Try4Real.Domain.Commands
 {
     public class UpdateCustomerCommandHandler : ICommandHandler<UpdateCustomerCommand>
     {

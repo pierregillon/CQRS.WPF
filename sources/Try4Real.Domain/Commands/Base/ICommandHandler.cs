@@ -1,4 +1,4 @@
-namespace Try4Real.Domain.CustomerManagement.Application.Base
+namespace Try4Real.Domain.Commands.Base
 {
     public interface ICommandHandler<in T>
     {

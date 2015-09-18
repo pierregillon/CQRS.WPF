@@ -1,6 +1,4 @@
-﻿using Try4Real.Domain.CustomerManagement.Domain;
-
-namespace Try4Real.Domain.CustomerManagement.Infrastructure
+﻿namespace Try4Real.Domain.Model.User
 {
     public interface ICustomerRepository
     {

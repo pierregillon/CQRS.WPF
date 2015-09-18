@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Try4Real.Domain.CustomerManagement.Application;
-using Try4Real.Domain.CustomerManagement.Domain;
-using Try4Real.Domain.CustomerManagement.Presentation;
+using Try4Real.Domain.Commands;
+using Try4Real.Domain.Model.User;
+using Try4Real.Domain.Presentation;
 using Try4Real.EndPoint.Contracts;
 using Try4Real.EndPoint.Contracts.Services;
 using CustomerDetails = Try4Real.EndPoint.Contracts.CustomerDetails;

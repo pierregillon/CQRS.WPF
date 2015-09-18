@@ -52,13 +52,13 @@
     <Compile Include="Services\IGate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Try4Real.Domain.CustomerManagement.Persistence\Domain.CustomerManagement.Infrastructure.csproj">
+    <ProjectReference Include="..\Try4Real.Domain.Persistence\Domain.Infrastructure.csproj">
       <Project>{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}</Project>
-      <Name>Domain.CustomerManagement.Infrastructure</Name>
+      <Name>Domain.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Try4Real.Domain.CustomerManagement\Domain.CustomerManagement.csproj">
+    <ProjectReference Include="..\Try4Real.Domain\Domain.csproj">
       <Project>{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}</Project>
-      <Name>Domain.CustomerManagement</Name>
+      <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Try4Real.EndPoint.Contracts\EndPoint.Contracts.csproj">
       <Project>{F38ECB65-908A-485C-8F56-B13C067D7D99}</Project>

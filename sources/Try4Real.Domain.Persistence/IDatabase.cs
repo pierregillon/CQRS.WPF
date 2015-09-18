@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Try4Real.Domain.CustomerManagement.Infrastructure
+namespace Try4Real.Domain.Infrastructure
 {
     public interface IDatabase
     {

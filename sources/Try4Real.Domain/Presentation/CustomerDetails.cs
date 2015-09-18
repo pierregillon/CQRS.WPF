@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Try4Real.Domain.CustomerManagement.Presentation
+namespace Try4Real.Domain.Presentation
 {
     public class CustomerDetails
     {

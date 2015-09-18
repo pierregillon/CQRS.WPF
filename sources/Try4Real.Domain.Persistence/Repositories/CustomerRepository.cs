@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Try4Real.Domain.CustomerManagement.Domain;
+using Try4Real.Domain.Model.User;
 
-namespace Try4Real.Domain.CustomerManagement.Infrastructure.Repositories
+namespace Try4Real.Domain.Infrastructure.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {

@@ -1,4 +1,4 @@
-using Try4Real.Domain.CustomerManagement.Application.Base;
+using Try4Real.Domain.Commands.Base;
 
 namespace Try4Real.EndPoint.Services
 {

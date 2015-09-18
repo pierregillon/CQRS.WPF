@@ -1,19 +1,17 @@
 ﻿using System;
-using Try4Real.Domain.CustomerManagement.Domain;
+using Try4Real.Domain.Commands.Base;
 
-namespace Try4Real.Domain.CustomerManagement.Application
+namespace Try4Real.Domain.Commands
 {
-    public class UpdateCustomerCommand
+    public class CreateCustomerCommand : ICommand
     {
-        public CustomerId Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Email { get; set; }
 
-        public UpdateCustomerCommand(CustomerId id, string firstName, string lastName, DateTime birthDate, string email)
+        public CreateCustomerCommand(string firstName, string lastName, DateTime birthDate, string email)
         {
-            Id = id;
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;

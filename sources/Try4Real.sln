@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF Client", "WPF Client", "{555EB340-BCB0-4EEE-9AF6-3C0721425040}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoundedContexts", "BoundedContexts", "{4233BAD1-0039-4870-BA61-EC115048E263}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4233BAD1-0039-4870-BA61-EC115048E263}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.Contracts", "Try4Real.EndPoint.Contracts\EndPoint.Contracts.csproj", "{F38ECB65-908A-485C-8F56-B13C067D7D99}"
 EndProject
@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Remoting", "Remoting", "{35
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoint", "Endpoint", "{3ADBA989-7E60-401C-B72F-48BE362AFBFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.CustomerManagement", "Try4Real.Domain.CustomerManagement\Domain.CustomerManagement.csproj", "{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Try4Real.Domain\Domain.csproj", "{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.CustomerManagement.Infrastructure", "Try4Real.Domain.CustomerManagement.Persistence\Domain.CustomerManagement.Infrastructure.csproj", "{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Infrastructure", "Try4Real.Domain.Persistence\Domain.Infrastructure.csproj", "{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHosting", "Try4Real.WebHosting\WebHosting.csproj", "{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}"
 EndProject

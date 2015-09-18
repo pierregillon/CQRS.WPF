@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Try4Real.Domain.CustomerManagement.Domain;
-using Try4Real.Domain.CustomerManagement.Presentation;
+using Try4Real.Domain.Model.User;
+using Try4Real.Domain.Presentation;
 
-namespace Try4Real.Domain.CustomerManagement.Infrastructure.Finders
+namespace Try4Real.Domain.Infrastructure.Finders
 {
     public class CustomerListFinder : ICustomerListFinder
     {
