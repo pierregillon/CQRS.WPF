@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -11,6 +10,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
     {
         private readonly IViewModelFactory<CustomerListViewModel> _customerListViewModelFactory;
         private readonly IViewModelFactory<CustomerDetailViewModel> _customerDetailViewModelFactory;
+        private readonly IViewModelFactory<OrderListViewModel> _orderListViewModelFactory;
 
         public ObservableCollection<IViewModelTab> Tabs
         {
@@ -27,11 +27,13 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         public MainViewModel(
             IMessenger messenger, 
             IViewModelFactory<CustomerListViewModel> customerListViewModelFactory, 
-            IViewModelFactory<CustomerDetailViewModel> customerDetailViewModelFactory)
+            IViewModelFactory<CustomerDetailViewModel> customerDetailViewModelFactory,
+            IViewModelFactory<OrderListViewModel> orderListViewModelFactory)
         {
             _customerListViewModelFactory = customerListViewModelFactory;
             _customerDetailViewModelFactory = customerDetailViewModelFactory;
-            
+            _orderListViewModelFactory = orderListViewModelFactory;
+
             Tabs = new ObservableCollection<IViewModelTab>();
             CloseTabCommand = new RelayCommand<IViewModelTab>(CloseTab);
 
@@ -40,9 +42,13 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
 
         public void Boot()
         {
-            var viewModel = _customerListViewModelFactory.Build();
-            Tabs.Add(viewModel);
-            viewModel.Boot();
+            var customerListViewModel = _customerListViewModelFactory.Build();
+            Tabs.Add(customerListViewModel);
+            customerListViewModel.Boot();
+
+            var orderListViewModel = _orderListViewModelFactory.Build();
+            Tabs.Add(orderListViewModel);
+            orderListViewModel.Boot();
         }
 
         private void CloseTab(IViewModelTab viewModelTab)

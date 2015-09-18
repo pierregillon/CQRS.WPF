@@ -10,7 +10,9 @@ namespace Try4Real.Client.Wpf.LocalDataAccess
         {
             var serverIoc = EndPoint.Ioc.Instance;
             serverIoc.Init();
+
             container.RegisterSingleton(serverIoc.GetInstance<ICustomerService>);
+            container.RegisterSingleton(serverIoc.GetInstance<IOrderService>);
         }
     }
 }

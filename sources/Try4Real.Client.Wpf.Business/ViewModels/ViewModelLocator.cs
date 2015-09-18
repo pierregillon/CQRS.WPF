@@ -14,5 +14,9 @@
         {
             get { return Ioc.Instance.GetInstance<CustomerDetailViewModel>(); }
         }
+        public OrderListViewModel OrderListViewModel
+        {
+            get { return Ioc.Instance.GetInstance<OrderListViewModel>(); }
+        }
     }
 }

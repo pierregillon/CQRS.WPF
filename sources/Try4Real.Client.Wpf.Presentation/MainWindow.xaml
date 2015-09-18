@@ -10,6 +10,9 @@
         <DataTemplate DataType="{x:Type viewModels:CustomerListViewModel}">
             <views:CustomerListView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:OrderListViewModel}">
+            <views:OrderListView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:CustomerDetailViewModel}">
             <views:CustomerDetailView/>
         </DataTemplate>

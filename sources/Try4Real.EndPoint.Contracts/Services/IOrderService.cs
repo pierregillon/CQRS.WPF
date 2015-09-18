@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace Try4Real.EndPoint.Contracts.Services
 {
@@ -7,5 +8,8 @@ namespace Try4Real.EndPoint.Contracts.Services
     {
         [OperationContract]
         void CreateOrder(CreateOrderRequest request);
+        
+        [OperationContract]
+        IEnumerable<OrderListItem> GetOrderListItems();
     }
 }

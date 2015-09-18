@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Try4Real.Client.Wpf.Presentation.Views.OrderListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             d:DesignHeight="163.2" d:DesignWidth="516.8"
+             d:DataContext="{Binding Source={StaticResource Locator}, Path=OrderListViewModel}">
+    <xctk:BusyIndicator IsBusy="{Binding Path=IsLoading, Mode=TwoWay}" BusyContent="Loading ...">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="200" Height="35" Command="{Binding Path=CreateOrderCommand}" Content="Create new order" />
+                <Button Width="100" Height="35" Command="{Binding Path=RefreshCommand}" Content="Refresh" />
+            </StackPanel>
+            <DataGrid Grid.Row="1"
+                      ItemsSource="{Binding Path=Orders, Mode=OneWay}"
+                      SelectedItem="{Binding Path=SelectedOrder, Mode=TwoWay}"
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Date}" Width="0.5*" />
+                    <DataGridTextColumn Binding="{Binding Path=CustomerFullName}" Width="0.2*" />
+                    <DataGridTextColumn Binding="{Binding Path=TotalAmount}" Width="0.2*" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Show" Width="80"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.OpenOrderDetailCommand}"
+                                        CommandParameter="{Binding Path=.}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PreviewMouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding Path=OpenOrderDetailCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DataGrid>
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

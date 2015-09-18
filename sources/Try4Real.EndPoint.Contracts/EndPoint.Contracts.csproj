@@ -41,6 +41,7 @@
     <Compile Include="CustomerDetails.cs" />
     <Compile Include="CustomerListItem.cs" />
     <Compile Include="OrderItem.cs" />
+    <Compile Include="OrderListItem.cs" />
     <Compile Include="Services\ICustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IOrderService.cs" />

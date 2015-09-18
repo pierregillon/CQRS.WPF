@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Try4Real.Domain.Model.Order;
+using Try4Real.Domain.Model.User;
 
 namespace Try4Real.Domain.Infrastructure
 {
     public class InMemoryDatabase : IDatabase
     {
         private readonly IDictionary<Type, IEnumerable> _data = new Dictionary<Type, IEnumerable>();
+
+        public InMemoryDatabase()
+        {
+            var customer = new Customer("Mark", "DUPONT", DateTime.Now.Subtract(TimeSpan.FromDays(25*365)));
+            var order = new Order(customer.CustomerId);
+
+            Set<Customer>().Add(customer);
+            Set<Order>().Add(order);
+        }
 
         public IList<T> Set<T>()
         {

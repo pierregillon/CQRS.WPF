@@ -1,25 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Try4Real.Domain.Commands;
 using Try4Real.Domain.Model.User;
 
 namespace Try4Real.Domain.Model.Order
 {
     public class Order
     {
-        private readonly CustomerId _customerId;
         private readonly IList<OrderLine> _lines = new List<OrderLine>() ;
 
         public OrderId Id { get; private set; }
         public OrderStatus Status { get; private set; }
         public DateTime? PendingStartDate { get; private set; }
         public DateTime? PendingEndDate { get; private set; }
+        public CustomerId CustomerId { get; private set; }
+        public DateTime CreationDate { get; private set; }
 
         public Order(CustomerId customerId)
         {
             Id = OrderId.New();
-            _customerId = customerId;
+            CreationDate = DateTime.Now;
+            CustomerId = customerId;
         }
 
         public void Open()
