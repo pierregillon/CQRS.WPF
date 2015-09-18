@@ -48,7 +48,7 @@ namespace Try4Real.EndPoint.Services
         }
         public void UpdateCustomerDetails(CustomerDetails customerDetails)
         {
-            _gate.Dispatch(new UpdateCustomerCommand(customerDetails.Id, customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
+            _gate.Dispatch(new UpdateCustomerCommand(CustomerId.From(customerDetails.Id), customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
         }
         public void DeleteCustomer(Guid id)
         {

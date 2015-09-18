@@ -11,9 +11,9 @@ namespace Try4Real.Domain.CustomerManagement.Application
         public DateTime BirthDate { get; set; }
         public string Email { get; set; }
 
-        public UpdateCustomerCommand(Guid id, string firstName, string lastName, DateTime birthDate, string email)
+        public UpdateCustomerCommand(CustomerId id, string firstName, string lastName, DateTime birthDate, string email)
         {
-            Id = CustomerId.From(id);
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;
