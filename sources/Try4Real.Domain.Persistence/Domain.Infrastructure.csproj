@@ -44,6 +44,7 @@
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="IDatabase.cs" />
     <Compile Include="InMemoryDatabase.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

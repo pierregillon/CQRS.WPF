@@ -5,6 +5,7 @@ using Try4Real.Domain.Commands.Base;
 using Try4Real.Domain.Infrastructure;
 using Try4Real.Domain.Infrastructure.Finders;
 using Try4Real.Domain.Infrastructure.Repositories;
+using Try4Real.Domain.Model.Order;
 using Try4Real.Domain.Model.User;
 using Try4Real.Domain.Presentation;
 using Try4Real.EndPoint.Contracts.Services;
@@ -25,8 +26,10 @@ namespace Try4Real.EndPoint
         public void Init()
         {
             _container.Register<ICustomerService, CustomerService>();
+            _container.Register<IOrderService, OrderService>();
             _container.Register<ICustomerListFinder, CustomerListFinder>();
             _container.Register<ICustomerRepository, CustomerRepository>();
+            _container.Register<IOrderRepository, OrderRepository>();
             _container.Register<IGate, Gate>();
             _container.RegisterManyForOpenGeneric(typeof(ICommandHandler<>), typeof(ICommandHandler<>).Assembly);
             _container.Register<IDatabase, InMemoryDatabase>(Lifestyle.Singleton);
