@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using SimpleInjector;
+using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels;
 
@@ -20,7 +21,7 @@ namespace Try4Real.Client.Wpf.Business
             _container = new Container();
         }
 
-        public void Init(IServiceRegistry serviceRegistry)
+        public void Init(IServiceRegistry serviceRegistry, IDialogService dialogService)
         {
             serviceRegistry.RegisterService(_container);
 
@@ -34,6 +35,7 @@ namespace Try4Real.Client.Wpf.Business
             _container.RegisterSingleton(() => Messenger.Default);
 
             _container.RegisterSingleton(typeof(IViewModelFactory<>), typeof(ViewModelFactory<>));
+            _container.RegisterSingleton(dialogService);
         }
 
         public T GetInstance<T>() where T : class

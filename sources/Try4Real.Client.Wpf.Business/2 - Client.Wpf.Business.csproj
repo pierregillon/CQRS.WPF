@@ -66,11 +66,13 @@
     <Compile Include="Services\ICustomerListService.cs" />
     <Compile Include="Services\IServiceRegistry.cs" />
     <Compile Include="Ioc.cs" />
+    <Compile Include="Dialog\Answers.cs" />
     <Compile Include="ViewModels\Base\LoadingViewModelBase.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
     <Compile Include="ViewModels\CustomerDetailViewModel.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="Services\ICustomerDetailService.cs" />
+    <Compile Include="Dialog\IDialogService.cs" />
     <Compile Include="ViewModels\IViewModelFactory.cs" />
     <Compile Include="ViewModels\IViewModelTab.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

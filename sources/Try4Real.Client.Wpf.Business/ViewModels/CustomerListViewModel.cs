@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 using Try4Real.EndPoint.Contracts;
@@ -13,6 +14,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
     {
         private readonly IMessenger _messenger;
         private readonly ICustomerListService _customerListService;
+        private readonly IDialogService _dialogService;
 
         public string Title
         {
@@ -42,10 +44,12 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         public ICommand OpenCustomerDetailsCommand { get; private set; }
 
         // ----- Constructors
-        public CustomerListViewModel(IMessenger messenger, ICustomerListService customerListService)
+        public CustomerListViewModel(IMessenger messenger, ICustomerListService customerListService, IDialogService dialogService)
         {
             _messenger = messenger;
             _customerListService = customerListService;
+            _dialogService = dialogService;
+
             CreateCustomerCommand = new RelayCommand(CreateCustomer);
             RefreshCommand = new RelayCommand(RefreshCustomerList);
             DeleteCustomerCommand = new RelayCommand<CustomerListItem>(DeleteCustomer);
@@ -71,10 +75,15 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
 
             RefreshCustomerList();
         }
-        private async void DeleteCustomer(CustomerListItem customerListItem)
+        private void DeleteCustomer(CustomerListItem customerListItem)
         {
-            await Async(() => _customerListService.DeleteCustomer(customerListItem.Id));
-            Customers.Remove(customerListItem);
+            _dialogService.AskQuestion("Delete customer", "Are you sure to delete the customer '' ?", async answer =>
+            {
+                if (answer == Answers.Yes) {
+                    await Async(() => _customerListService.DeleteCustomer(customerListItem.Id));
+                    Customers.Remove(customerListItem);
+                }
+            });
         }
         private void OpenCustomerDetails(CustomerListItem customerListItem)
         {
