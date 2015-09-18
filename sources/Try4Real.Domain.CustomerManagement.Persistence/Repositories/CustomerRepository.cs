@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Try4Real.Domain.CustomerManagement.Domain;
 
 namespace Try4Real.Domain.CustomerManagement.Infrastructure.Repositories
@@ -19,13 +18,13 @@ namespace Try4Real.Domain.CustomerManagement.Infrastructure.Repositories
         }
         public void Update(Customer customer)
         {
-            var existing = _database.Set<Customer>().First(x => x.CustomerId == customer.CustomerId);
-            _database.Set<Customer>().Remove(existing);
-            _database.Set<Customer>().Add(customer);
+            Delete(customer.CustomerId);
+            Add(customer);
         }
         public void Delete(CustomerId customerId)
         {
-            throw new NotImplementedException();
+            var existing = _database.Set<Customer>().First(x => x.CustomerId == customerId);
+            _database.Set<Customer>().Remove(existing);
         }
         public Customer GetBy(CustomerId id)
         {

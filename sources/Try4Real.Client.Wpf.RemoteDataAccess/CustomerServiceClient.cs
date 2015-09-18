@@ -28,5 +28,9 @@ namespace Try4Real.Client.Wpf.RemoteDataAccess
         {
             Channel.UpdateCustomerDetails(customerDetails);
         }
+        public void DeleteCustomer(Guid id)
+        {
+            Channel.DeleteCustomer(id);
+        }
     }
 }

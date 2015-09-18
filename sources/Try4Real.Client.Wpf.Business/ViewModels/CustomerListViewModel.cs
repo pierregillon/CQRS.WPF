@@ -71,9 +71,9 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
 
             RefreshCustomerList();
         }
-        private void DeleteCustomer(CustomerListItem customerListItem)
+        private async void DeleteCustomer(CustomerListItem customerListItem)
         {
-            //_customerListService.DeleteCustomer(customerListItem.Id);
+            await Async(() => _customerListService.DeleteCustomer(customerListItem.Id));
             Customers.Remove(customerListItem);
         }
         private void OpenCustomerDetails(CustomerListItem customerListItem)

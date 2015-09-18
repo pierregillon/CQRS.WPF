@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Try4Real.Domain.CustomerManagement.Application;
+using Try4Real.Domain.CustomerManagement.Domain;
 using Try4Real.Domain.CustomerManagement.Presentation;
 using Try4Real.EndPoint.Contracts;
 using Try4Real.EndPoint.Contracts.Services;
@@ -48,6 +49,10 @@ namespace Try4Real.EndPoint.Services
         public void UpdateCustomerDetails(CustomerDetails customerDetails)
         {
             _gate.Dispatch(new UpdateCustomerCommand(customerDetails.Id, customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
+        }
+        public void DeleteCustomer(Guid id)
+        {
+            _gate.Dispatch(new DeleteCustomerCommand(CustomerId.From(id)));
         }
         public void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email)
         {

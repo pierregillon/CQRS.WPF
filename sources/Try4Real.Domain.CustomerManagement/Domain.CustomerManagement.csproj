@@ -43,6 +43,8 @@
     <Compile Include="Application\CreateCustomerCommandHandler.cs" />
     <Compile Include="Application\Base\ICommand.cs" />
     <Compile Include="Application\Base\ICommandHandler.cs" />
+    <Compile Include="Application\DeleteCustomerCommand.cs" />
+    <Compile Include="Application\DeleteCustomerCommandHandler.cs" />
     <Compile Include="Application\UpdateCustomerCommand.cs" />
     <Compile Include="Application\UpdateCustomerCommandHandler.cs" />
     <Compile Include="Domain\Customer.cs" />

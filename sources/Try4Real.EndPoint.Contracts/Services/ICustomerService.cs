@@ -18,5 +18,8 @@ namespace Try4Real.EndPoint.Contracts.Services
         
         [OperationContract]
         void UpdateCustomerDetails(CustomerDetails customerDetails);
+        
+        [OperationContract]
+        void DeleteCustomer(Guid id);
     }
 }

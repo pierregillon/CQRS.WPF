@@ -23,5 +23,9 @@ namespace Try4Real.Client.Wpf.Business.Services
         {
             _customerService.CreateCustomer(firstName, lastName, birthDate, email);
         }
+        public void DeleteCustomer(Guid id)
+        {
+            _customerService.DeleteCustomer(id);
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace Try4Real.Client.Wpf.Business.Services
     {
         IEnumerable<CustomerListItem> GetCustomers();
         void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email);
+        void DeleteCustomer(Guid id);
     }
 }
