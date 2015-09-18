@@ -14,9 +14,18 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         private readonly IMessenger _messenger;
         private readonly ICustomerListService _customerListService;
 
-        public string Title { get { return "Customer list"; } }
-        public bool CanClose { get { return false; } }
-        public bool IsClosable { get { return false; } }
+        public string Title
+        {
+            get { return "Customer list"; }
+        }
+        public bool CanClose
+        {
+            get { return false; }
+        }
+        public bool IsClosable
+        {
+            get { return false; }
+        }
         public ObservableCollection<CustomerListItem> Customers
         {
             get { return GetNotifiableProperty<ObservableCollection<CustomerListItem>>("Customers"); }
@@ -53,11 +62,11 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         private void CreateCustomer()
         {
             var random = new Random((int) DateTime.Now.Ticks);
-            
+
             _customerListService.CreateCustomer(
                 "FirstName" + random.Next(0, 50),
                 "LastName" + random.Next(0, 50),
-                DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, 50 * 365))),
+                DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, 50*365))),
                 random.Next(100, 10000) + "@gmail.com");
 
             RefreshCustomerList();
@@ -69,7 +78,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         }
         private void OpenCustomerDetails(CustomerListItem customerListItem)
         {
-            _messenger.Send(new OpenCustomerDetailsMessage(customerListItem.Id));
+            var item = customerListItem ?? SelectedCustomer;
+            if (item != null) {
+                _messenger.Send(new OpenCustomerDetailsMessage(item.Id));
+            }
         }
         private async void RefreshCustomerList()
         {

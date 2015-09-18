@@ -47,7 +47,7 @@
                 </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="PreviewMouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding Path=OpenCustomerDetailsCommand}" />
+                        <i:InvokeCommandAction Command="{Binding Path=OpenCustomerDetailsCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
