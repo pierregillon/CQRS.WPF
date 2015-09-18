@@ -29,10 +29,10 @@ namespace Try4Real.Domain.CustomerManagement.Infrastructure.Finders
             return query.ToList();
         }
 
-        public CustomerDetails GetDetails(Guid customerId)
+        public CustomerDetails GetDetails(CustomerId customerId)
         {
             var query = from customer in _database.Set<Customer>()
-                        where customer.CustomerId == CustomerId.From(customerId)
+                        where customer.CustomerId == customerId
                         select new CustomerDetails
                         {
                             Id = customer.CustomerId.Value,

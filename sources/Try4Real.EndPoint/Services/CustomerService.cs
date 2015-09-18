@@ -36,7 +36,7 @@ namespace Try4Real.EndPoint.Services
         }
         public CustomerDetails GetCustomerDetails(Guid customerId)
         {
-            var details = _customerFinder.GetDetails(customerId);
+            var details = _customerFinder.GetDetails(CustomerId.From(customerId));
             return new CustomerDetails
             {
                 Id = details.Id,
