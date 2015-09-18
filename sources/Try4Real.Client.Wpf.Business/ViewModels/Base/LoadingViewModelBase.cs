@@ -21,5 +21,17 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
                 IsLoading = false;
             }
         }
+        protected async Task Async(Action action)
+        {
+            try
+            {
+                IsLoading = true;
+                await Task.Run(action);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
     }
 }

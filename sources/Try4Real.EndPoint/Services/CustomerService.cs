@@ -26,7 +26,7 @@ namespace Try4Real.EndPoint.Services
                 .GetCustomerListItems()
                 .Select(x => new CustomerListItem
                 {
-                    Id =  x.Id,
+                    Id = x.Id,
                     FullName = x.FullName,
                     YearOld = x.YearOld,
                     Email = x.Email
@@ -41,8 +41,13 @@ namespace Try4Real.EndPoint.Services
                 Id = details.Id,
                 FirstName = details.FirstName,
                 LastName = details.LastName,
-                BirthDate = details.BirthDate
+                BirthDate = details.BirthDate,
+                Email = details.Email,
             };
+        }
+        public void UpdateCustomerDetails(CustomerDetails customerDetails)
+        {
+            _gate.Dispatch(new UpdateCustomerCommand(customerDetails.Id, customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
         }
         public void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email)
         {

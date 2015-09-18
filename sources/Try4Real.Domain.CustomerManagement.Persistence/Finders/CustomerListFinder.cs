@@ -38,7 +38,8 @@ namespace Try4Real.Domain.CustomerManagement.Infrastructure.Finders
                             Id = customer.CustomerId.Value,
                             FirstName = customer.FirstName,
                             LastName = customer.LastName,
-                            BirthDate = customer.BirthDate
+                            BirthDate = customer.BirthDate,
+                            Email = customer.Email,
                         };
 
             return query.FirstOrDefault();

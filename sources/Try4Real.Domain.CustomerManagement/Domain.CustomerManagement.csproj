@@ -43,6 +43,8 @@
     <Compile Include="Application\CreateCustomerCommandHandler.cs" />
     <Compile Include="Application\Base\ICommand.cs" />
     <Compile Include="Application\Base\ICommandHandler.cs" />
+    <Compile Include="Application\UpdateCustomerCommand.cs" />
+    <Compile Include="Application\UpdateCustomerCommandHandler.cs" />
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Domain\CustomerId.cs" />
     <Compile Include="Infrastructure\ICustomerRepository.cs" />

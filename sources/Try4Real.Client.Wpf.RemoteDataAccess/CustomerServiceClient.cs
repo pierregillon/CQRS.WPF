@@ -24,5 +24,9 @@ namespace Try4Real.Client.Wpf.RemoteDataAccess
         {
             return Channel.GetCustomerDetails(customerId);
         }
+        public void UpdateCustomerDetails(CustomerDetails customerDetails)
+        {
+            Channel.UpdateCustomerDetails(customerDetails);
+        }
     }
 }

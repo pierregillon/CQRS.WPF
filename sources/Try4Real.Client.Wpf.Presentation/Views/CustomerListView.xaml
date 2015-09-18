@@ -14,7 +14,10 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Width="200" Height="35" HorizontalAlignment="Right" Command="{Binding Path=CreateCustomerCommand}" Content="Create random customer" />
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="200" Height="35" Command="{Binding Path=CreateCustomerCommand}" Content="Create random customer" />
+                <Button Width="100" Height="35" Command="{Binding Path=RefreshCommand}" Content="Refresh" />
+            </StackPanel>
             <DataGrid Grid.Row="1"
                       ItemsSource="{Binding Path=Customers, Mode=OneWay}"
                       SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"

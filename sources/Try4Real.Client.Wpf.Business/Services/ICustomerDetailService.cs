@@ -7,6 +7,7 @@ namespace Try4Real.Client.Wpf.Business.Services
     public interface ICustomerDetailService
     {
         CustomerDetails GetCustomerDetails(Guid customerId);
+        void UpdateDetails(CustomerDetails customerDetails);
     }
 
     public class CustomerDetailService: ICustomerDetailService
@@ -21,6 +22,10 @@ namespace Try4Real.Client.Wpf.Business.Services
         public CustomerDetails GetCustomerDetails(Guid customerId)
         {
             return _customerService.GetCustomerDetails(customerId);
+        }
+        public void UpdateDetails(CustomerDetails customerDetails)
+        {
+            _customerService.UpdateCustomerDetails(customerDetails);
         }
     }
 }
