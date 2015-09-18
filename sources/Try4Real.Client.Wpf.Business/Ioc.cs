@@ -1,6 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using SimpleInjector;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels;
@@ -29,9 +27,9 @@ namespace Try4Real.Client.Wpf.Business
             _container.RegisterSingleton<ICustomerListService, CustomerListService>();
             _container.RegisterSingleton<ICustomerDetailService, CustomerDetailService>();
 
-            _container.RegisterSingleton<CustomerListViewModel>();
             _container.RegisterSingleton<MainViewModel>();
-            _container.RegisterSingleton<CustomerDetailViewModel>();
+            _container.Register<CustomerListViewModel>();
+            _container.Register<CustomerDetailViewModel>();
 
             _container.RegisterSingleton(() => Messenger.Default);
 
