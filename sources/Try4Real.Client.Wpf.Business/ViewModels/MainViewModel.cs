@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 
@@ -19,6 +22,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             get { return GetNotifiableProperty<IViewModelTab>("SelectedTab"); }
             set { SetNotifiableProperty("SelectedTab", value); }
         }
+        public ICommand CloseTabCommand { get; private set; }
 
         public MainViewModel(
             IMessenger messenger, 
@@ -29,6 +33,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             _customerDetailViewModelFactory = customerDetailViewModelFactory;
             
             Tabs = new ObservableCollection<IViewModelTab>();
+            CloseTabCommand = new RelayCommand<IViewModelTab>(CloseTab);
 
             messenger.Register<OpenCustomerDetailsMessage>(this, OpenCustomerDetailsMessageReceived);
         }
@@ -40,6 +45,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             viewModel.Boot();
         }
 
+        private void CloseTab(IViewModelTab viewModelTab)
+        {
+            Tabs.Remove(viewModelTab);
+        }
         private void OpenCustomerDetailsMessageReceived(OpenCustomerDetailsMessage openCustomerDetailsMessage)
         {
             var detailViewModel = _customerDetailViewModelFactory.Build();
