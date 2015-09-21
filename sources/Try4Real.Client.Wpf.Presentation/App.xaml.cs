@@ -7,7 +7,7 @@ namespace Try4Real.Client.Wpf.Presentation
 {
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 #if DEBUG
@@ -15,7 +15,7 @@ namespace Try4Real.Client.Wpf.Presentation
 #else
             Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry(), new DialogService());
 #endif
-            ((ViewModelLocator)Current.Resources["Locator"]).MainViewModel.Boot();
+            await ((ViewModelLocator)Current.Resources["Locator"]).MainViewModel.Boot();
         }
     }
 }

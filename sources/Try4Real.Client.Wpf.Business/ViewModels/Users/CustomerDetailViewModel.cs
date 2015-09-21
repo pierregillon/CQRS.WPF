@@ -52,7 +52,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             SaveCommand = new AsyncCommand(Save);
         }
 
-        public async void Boot(Guid customerId)
+        public async Task Boot(Guid customerId)
         {
             Title = "Customer detail";
             var customerDetails = await Async(() => _customerDetailService.GetCustomerDetails(customerId));

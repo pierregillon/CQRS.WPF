@@ -61,7 +61,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             messenger.Register<CreateNewOrderMessage>(this, CreateNewOrderMessageReceived);
         }
 
-        public async void Boot()
+        public async Task Boot()
         {
             OrderItems = new ObservableCollection<OrderItemViewModel>();
             
@@ -85,9 +85,9 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             IsVisible = false;
         }
 
-        private void CreateNewOrderMessageReceived(CreateNewOrderMessage createNewOrderMessage)
+        private async void CreateNewOrderMessageReceived(CreateNewOrderMessage createNewOrderMessage)
         {
-            Boot();
+            await Boot();
             IsVisible = true;
         }
     }

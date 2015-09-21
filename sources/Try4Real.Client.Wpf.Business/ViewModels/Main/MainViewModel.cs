@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -42,27 +43,28 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Main
             messenger.Register<OpenCustomerDetailsMessage>(this, OpenCustomerDetailsMessageReceived);
         }
 
-        public void Boot()
+        public async Task Boot()
         {
             var customerListViewModel = _customerListViewModelFactory.Build();
             Tabs.Add(customerListViewModel);
-            customerListViewModel.Boot();
+            await customerListViewModel.Boot();
 
             var orderListViewModel = _orderListViewModelFactory.Build();
             Tabs.Add(orderListViewModel);
-            orderListViewModel.Boot();
+            await orderListViewModel.Boot();
         }
 
         private void CloseTab(IViewModelTab viewModelTab)
         {
             Tabs.Remove(viewModelTab);
         }
-        private void OpenCustomerDetailsMessageReceived(OpenCustomerDetailsMessage openCustomerDetailsMessage)
+
+        private async void OpenCustomerDetailsMessageReceived(OpenCustomerDetailsMessage openCustomerDetailsMessage)
         {
             var detailViewModel = _customerDetailViewModelFactory.Build();
-            detailViewModel.Boot(openCustomerDetailsMessage.CustomerId);
             Tabs.Add(detailViewModel);
             SelectedTab = detailViewModel;
+            await detailViewModel.Boot(openCustomerDetailsMessage.CustomerId);
         }
     }
 }

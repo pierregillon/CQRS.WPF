@@ -54,20 +54,20 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             _customerListService = customerListService;
             _dialogService = dialogService;
 
-            CreateCustomerCommand = new RelayCommand(CreateCustomer);
+            CreateCustomerCommand = new AsyncCommand(CreateCustomer);
             RefreshCommand = new AsyncCommand(RefreshCustomerList);
             DeleteCustomerCommand = new RelayCommand<CustomerListItem>(DeleteCustomer);
             OpenCustomerDetailsCommand = new RelayCommand<CustomerListItem>(OpenCustomerDetails);
         }
 
         // ----- Overrides
-        public async void Boot()
+        public async Task Boot()
         {
             await RefreshCustomerList();
         }
 
         // ----- Internal logics
-        private void CreateCustomer()
+        private async Task CreateCustomer()
         {
             var random = new Random((int) DateTime.Now.Ticks);
 
@@ -77,7 +77,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
                 DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, 50*365))),
                 random.Next(100, 10000) + "@gmail.com");
 
-            RefreshCustomerList();
+            await RefreshCustomerList();
         }
         private void DeleteCustomer(CustomerListItem customerListItem)
         {
