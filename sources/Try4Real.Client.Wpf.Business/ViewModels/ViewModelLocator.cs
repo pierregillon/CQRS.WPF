@@ -18,5 +18,9 @@
         {
             get { return Ioc.Instance.GetInstance<OrderListViewModel>(); }
         }
+        public CreateNewOrderViewModel CreateNewOrderViewModel
+        {
+            get { return Ioc.Instance.GetInstance<CreateNewOrderViewModel>(); }
+        }
     }
 }

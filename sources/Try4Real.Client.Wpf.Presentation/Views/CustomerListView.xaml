@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:dialog="clr-namespace:Try4Real.Client.Wpf.Presentation.Dialog"
              mc:Ignorable="d"
              d:DesignHeight="163.2" d:DesignWidth="516.8"
              d:DataContext="{Binding Source={StaticResource Locator}, Path=CustomerListViewModel}">
@@ -51,6 +52,12 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
+
+            <dialog:DialogContainer Grid.Row="0">
+                <dialog:DialogContainer.Dialogs>
+                    <dialog:DialogViewModelContainer ViewModel="{Binding Source={StaticResource Locator}, Path=CreateNewOrderViewModel}"  />
+                </dialog:DialogContainer.Dialogs>
+            </dialog:DialogContainer>
         </Grid>
     </xctk:BusyIndicator>
 </UserControl>
