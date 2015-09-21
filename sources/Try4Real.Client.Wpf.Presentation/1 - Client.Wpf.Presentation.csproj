@@ -93,6 +93,7 @@
     <Compile Include="Dialog\DialogService.cs" />
     <Compile Include="Dialog\DialogViewModelContainer.cs" />
     <Compile Include="Dialog\MessageBoxResultExtensions.cs" />
+    <Compile Include="Dialog\ViewModelChangedEventArgs.cs" />
     <Compile Include="Views\CreateNewOrderView.xaml.cs">
       <DependentUpon>CreateNewOrderView.xaml</DependentUpon>
     </Compile>

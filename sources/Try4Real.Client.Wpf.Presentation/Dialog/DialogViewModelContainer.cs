@@ -13,15 +13,15 @@ namespace Try4Real.Client.Wpf.Presentation.Dialog
         {
             var element = dependencyObject as DialogViewModelContainer;
             if (element != null) {
-                element.OnViewModelChanged();
+                element.OnViewModelChanged((IViewModelDialog)args.OldValue, (IViewModelDialog)args.NewValue);
             }
         }
 
-        public event EventHandler ViewModelChanged;
-        protected virtual void OnViewModelChanged()
+        public event EventHandler<ViewModelChangedEventArgs> ViewModelChanged;
+        protected virtual void OnViewModelChanged(IViewModelDialog oldViewModel, IViewModelDialog newViewModel)
         {
-            EventHandler handler = ViewModelChanged;
-            if (handler != null) handler(this, EventArgs.Empty);
+            EventHandler<ViewModelChangedEventArgs> handler = ViewModelChanged;
+            if (handler != null) handler(this, new ViewModelChangedEventArgs(oldViewModel, newViewModel));
         }
 
         public IViewModelDialog ViewModel
