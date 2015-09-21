@@ -96,6 +96,7 @@
     <Compile Include="Dialog\IWindowFactory.cs" />
     <Compile Include="Dialog\MessageBoxResultExtensions.cs" />
     <Compile Include="Dialog\ViewModelChangedEventArgs.cs" />
+    <Compile Include="Dialog\WindowFactory.cs" />
     <Compile Include="Views\CreateNewOrderView.xaml.cs">
       <DependentUpon>CreateNewOrderView.xaml</DependentUpon>
     </Compile>

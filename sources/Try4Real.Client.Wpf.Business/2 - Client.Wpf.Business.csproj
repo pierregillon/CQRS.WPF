@@ -67,6 +67,7 @@
     <Compile Include="Services\IServiceRegistry.cs" />
     <Compile Include="Ioc.cs" />
     <Compile Include="Dialog\Answers.cs" />
+    <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderListService.cs" />
     <Compile Include="ViewModels\Base\LoadingViewModelBase.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Services\ICustomerDetailService.cs" />
     <Compile Include="Dialog\IDialogService.cs" />
     <Compile Include="Services\IOrderListService.cs" />
+    <Compile Include="Services\IOrderDetailService.cs" />
     <Compile Include="ViewModels\IViewModelDialog.cs" />
     <Compile Include="ViewModels\IViewModelFactory.cs" />
     <Compile Include="ViewModels\IViewModelTab.cs" />

@@ -57,7 +57,7 @@
                 <dialog:DialogContainer.Dialogs>
                     <dialog:DialogViewModelContainer ViewModel="{Binding Source={StaticResource Locator}, Path=CreateNewOrderViewModel}">
                         <dialog:DialogViewModelContainer.ViewFactory>
-                            <dialog:DefaultWindowFactory />
+                            <dialog:WindowFactory />
                         </dialog:DialogViewModelContainer.ViewFactory>
                     </dialog:DialogViewModelContainer>
                 </dialog:DialogContainer.Dialogs>

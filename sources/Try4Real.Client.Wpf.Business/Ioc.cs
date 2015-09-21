@@ -28,6 +28,7 @@ namespace Try4Real.Client.Wpf.Business
             _container.RegisterSingleton<ICustomerListService, CustomerListService>();
             _container.RegisterSingleton<IOrderListService, OrderListService>();
             _container.RegisterSingleton<ICustomerDetailService, CustomerDetailService>();
+            _container.RegisterSingleton<IOrderDetailService, OrderDetailService>();
 
             _container.RegisterSingleton<MainViewModel>();
             _container.Register<CustomerListViewModel>();

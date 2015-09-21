@@ -73,7 +73,7 @@ namespace Try4Real.Client.Wpf.Presentation.Dialog
         // ----- Private methods.
         private void OpenDialogWith(IViewModelDialog viewModel)
         {
-            var window = ViewFactory.BuildNewWindow();
+            var window = ViewFactory.BuildNewWindow(viewModel);
             window.DataContext = viewModel;
             window.Closed += (sender, args) => { viewModel.IsVisible = false; };
             _window = window;
