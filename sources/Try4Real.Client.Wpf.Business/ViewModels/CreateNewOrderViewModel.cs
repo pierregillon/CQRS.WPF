@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -29,10 +31,15 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             get { return GetNotifiableProperty<CustomerListItem>("SelectedCustomer"); }
             set { SetNotifiableProperty("SelectedCustomer", value); }
         }
-        public ObservableCollection<OrderItem> OrderItems
+        public ObservableCollection<OrderItemViewModel> OrderItems
         {
-            get { return GetNotifiableProperty<ObservableCollection<OrderItem>>("OrderItems"); }
+            get { return GetNotifiableProperty<ObservableCollection<OrderItemViewModel>>("OrderItems"); }
             private set { SetNotifiableProperty("OrderItems", value); }
+        }
+        public IEnumerable<ProductItem> Products
+        {
+            get { return GetNotifiableProperty<IEnumerable<ProductItem>>("Products"); }
+            set { SetNotifiableProperty("Products", value); }
         }
         public ICommand CreateNewOrderItemCommand { get; private set; }
         public ICommand SaveCommand { get; private set; }
@@ -51,16 +58,22 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
         public async void Boot()
         {
             Customers = await Async(() => _customerListService.GetCustomers());
-            OrderItems = new ObservableCollection<OrderItem>();
+            OrderItems = new ObservableCollection<OrderItemViewModel>();
+            Products = new List<ProductItem>
+            {
+                new ProductItem {Id=Guid.NewGuid(), Name = "Jacket"},
+                new ProductItem {Id=Guid.NewGuid(), Name = "Book"},
+            };
         }
 
         private void CreateNewOrder()
         {
-            OrderItems.Add(new OrderItem());
+            OrderItems.Add(new OrderItemViewModel());
         }
         private async void Save()
         {
-            await Async(() => _orderDetailService.CreateOrder(SelectedCustomer.Id, OrderItems));
+            var orderItems = OrderItems.Select(x => new OrderItem(x.Product.Id, x.Amount)).ToArray();
+            await Async(() => _orderDetailService.CreateOrder(SelectedCustomer.Id, orderItems));
             IsVisible = false;
         }
 

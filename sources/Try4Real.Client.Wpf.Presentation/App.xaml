@@ -1,9 +1,10 @@
 ﻿<Application x:Class="Try4Real.Client.Wpf.Presentation.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:viewModels1="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels;assembly=Try4Real.Client.Wpf.Business"
+             xmlns:viewModels="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels;assembly=Try4Real.Client.Wpf.Business"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <viewModels1:ViewModelLocator x:Key="Locator"/>
+        <viewModels:ViewModelLocator x:Key="Locator"/>
+        <viewModels:DesignTimeViewModelLocator x:Key="DesignTimeLocator"/>
     </Application.Resources>
 </Application>
