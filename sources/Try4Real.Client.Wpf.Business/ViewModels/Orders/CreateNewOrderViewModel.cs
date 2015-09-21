@@ -43,7 +43,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             set { SetNotifiableProperty("Products", value); }
         }
         public ICommand CreateNewOrderItemCommand { get; private set; }
-        public ICommand SaveCommand { get; private set; }
+        public IAsyncCommand SaveCommand { get; private set; }
 
         public CreateNewOrderViewModel(
             IMessenger messenger, 
@@ -56,7 +56,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             _productListService = productListService;
 
             CreateNewOrderItemCommand = new RelayCommand(CreateNewOrder);
-            SaveCommand = new RelayCommand(Save);
+            SaveCommand = new AsyncCommand(Save);
 
             messenger.Register<CreateNewOrderMessage>(this, CreateNewOrderMessageReceived);
         }
@@ -78,7 +78,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
         {
             OrderItems.Add(new OrderItemViewModel());
         }
-        private async void Save()
+        private async Task Save()
         {
             var orderItems = OrderItems.Select(x => new OrderItem(x.Product.Id, x.Amount)).ToArray();
             await Async(() => _orderDetailService.CreateOrder(SelectedCustomer.Id, orderItems));

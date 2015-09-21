@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -39,27 +40,30 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             set { SetNotifiableProperty("SelectedCustomer", value); }
         }
         public ICommand CreateCustomerCommand { get; private set; }
-        public ICommand RefreshCommand { get; private set; }
+        public IAsyncCommand RefreshCommand { get; private set; }
         public ICommand DeleteCustomerCommand { get; private set; }
         public ICommand OpenCustomerDetailsCommand { get; private set; }
 
         // ----- Constructors
-        public CustomerListViewModel(IMessenger messenger, ICustomerListService customerListService, IDialogService dialogService)
+        public CustomerListViewModel(
+            IMessenger messenger, 
+            ICustomerListService customerListService, 
+            IDialogService dialogService)
         {
             _messenger = messenger;
             _customerListService = customerListService;
             _dialogService = dialogService;
 
             CreateCustomerCommand = new RelayCommand(CreateCustomer);
-            RefreshCommand = new RelayCommand(RefreshCustomerList);
+            RefreshCommand = new AsyncCommand(RefreshCustomerList);
             DeleteCustomerCommand = new RelayCommand<CustomerListItem>(DeleteCustomer);
             OpenCustomerDetailsCommand = new RelayCommand<CustomerListItem>(OpenCustomerDetails);
         }
 
         // ----- Overrides
-        public void Boot()
+        public async void Boot()
         {
-            RefreshCustomerList();
+            await RefreshCustomerList();
         }
 
         // ----- Internal logics
@@ -92,7 +96,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
                 _messenger.Send(new OpenCustomerDetailsMessage(item.Id));
             }
         }
-        private async void RefreshCustomerList()
+        private async Task RefreshCustomerList()
         {
             var customers = await Async(() => _customerListService.GetCustomers());
             Customers = new ObservableCollection<CustomerListItem>(customers);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Try4Real.Client.Wpf.Business.Services;
@@ -42,13 +43,13 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             set { SetNotifiableProperty("CustomerEmail", value); }
         }
 
-        public ICommand SaveCommand { get; private set; }
+        public IAsyncCommand SaveCommand { get; private set; }
 
         public CustomerDetailViewModel(ICustomerDetailService customerDetailService)
         {
             _customerDetailService = customerDetailService;
 
-            SaveCommand = new RelayCommand(Save);
+            SaveCommand = new AsyncCommand(Save);
         }
 
         public async void Boot(Guid customerId)
@@ -63,7 +64,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             CustomerBirthDate = customerDetails.BirthDate;
             CustomerEmail = customerDetails.Email;
         }
-        private async void Save()
+        private async Task Save()
         {
             await Async(() => _customerDetailService.UpdateDetails(new CustomerDetails
             {

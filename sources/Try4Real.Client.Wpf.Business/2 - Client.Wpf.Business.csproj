@@ -79,6 +79,8 @@
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
     <Compile Include="ViewModels\Orders\CreateNewOrderMessage.cs" />
     <Compile Include="ViewModels\Orders\CreateNewOrderViewModel.cs" />
+    <Compile Include="ViewModels\Base\IAsyncCommand.cs" />
+    <Compile Include="ViewModels\Base\AsyncCommand.cs" />
     <Compile Include="ViewModels\Users\CustomerDetailViewModel.cs" />
     <Compile Include="ViewModels\Users\CustomerListViewModel.cs" />
     <Compile Include="Services\ICustomerDetailService.cs" />

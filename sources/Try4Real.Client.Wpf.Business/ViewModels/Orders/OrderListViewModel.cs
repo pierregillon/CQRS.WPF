@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -33,7 +34,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
         }
 
         public ICommand CreateOrderCommand { get; private set; }
-        public ICommand RefreshCommand { get; private set; }
+        public IAsyncCommand RefreshCommand { get; private set; }
         public ICommand OpenOrderDetailCommand { private set; get; }
 
         public OrderListViewModel(IMessenger messenger, IOrderListService orderListService)
@@ -43,15 +44,15 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             Orders = new ObservableCollection<OrderListItem>();
 
             CreateOrderCommand = new RelayCommand(CreateOrder);
-            RefreshCommand = new RelayCommand(Refresh);
+            RefreshCommand = new AsyncCommand(Refresh);
         }
 
-        public void Boot()
+        public async Task Boot()
         {
-            Refresh();
+            await Refresh();
         }
 
-        private async void Refresh()
+        private async Task Refresh()
         {
             var orderListItems = await Async(() => _orderListService.GetOrders());
             Orders = new ObservableCollection<OrderListItem>(orderListItems);
