@@ -61,9 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\CreateNewOrderViewModelDesign.cs" />
+    <Compile Include="Design\CustomerListViewModelDesign.cs" />
+    <Compile Include="Design\OrderListViewModelDesign.cs" />
     <Compile Include="Services\IProductListService.cs" />
     <Compile Include="Services\ProductListService.cs" />
-    <Compile Include="ViewModels\DesignTimeViewModelLocator.cs" />
+    <Compile Include="Design\DesignTimeViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CustomerListService.cs" />
     <Compile Include="Services\ICustomerListService.cs" />

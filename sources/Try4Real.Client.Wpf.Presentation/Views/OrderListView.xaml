@@ -6,8 +6,8 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
-             d:DesignHeight="163.2" d:DesignWidth="516.8"
-             d:DataContext="{Binding Source={StaticResource Locator}, Path=OrderListViewModel}">
+             d:DesignHeight="163.2" d:DesignWidth="546.8"
+             d:DataContext="{Binding Source={StaticResource DesignTimeLocator}, Path=OrderListViewModel}">
     <xctk:BusyIndicator IsBusy="{Binding Path=IsLoading, Mode=TwoWay}" BusyContent="Loading ...">
         <Grid>
             <Grid.RowDefinitions>
@@ -23,11 +23,11 @@
                       SelectedItem="{Binding Path=SelectedOrder, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=CreationDate}" Width="0.5*" />
-                    <DataGridTextColumn Binding="{Binding Path=CustomerFullName}" Width="0.2*" />
-                    <DataGridTextColumn Binding="{Binding Path=OrderItemCount}" Width="0.2*" />
-                    <DataGridTextColumn Binding="{Binding Path=TotalAmount}" Width="0.2*" />
-                    <DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Creation date" Binding="{Binding Path=CreationDate}"/>
+                    <DataGridTextColumn Header="Customer name" Binding="{Binding Path=CustomerFullName}" Width="*" />
+                    <DataGridTextColumn Header="Order item count" Binding="{Binding Path=OrderItemCount}" />
+                    <DataGridTextColumn Header="Total cost"  Binding="{Binding Path=TotalAmount}" />
+                    <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Show" Width="80"
