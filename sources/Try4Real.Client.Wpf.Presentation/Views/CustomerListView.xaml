@@ -7,8 +7,8 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:dialog="clr-namespace:Try4Real.Client.Wpf.Presentation.Dialog"
              mc:Ignorable="d"
-             d:DesignHeight="163.2" d:DesignWidth="516.8"
-             d:DataContext="{Binding Source={StaticResource Locator}, Path=CustomerListViewModel}">
+             d:DesignHeight="159.2" d:DesignWidth="549.8"
+             d:DataContext="{Binding Source={StaticResource DesignTimeLocator}, Path=CustomerListViewModel}">
     <xctk:BusyIndicator IsBusy="{Binding Path=IsLoading, Mode=TwoWay}" BusyContent="Loading ...">
         <Grid>
             <Grid.RowDefinitions>
@@ -24,24 +24,27 @@
                       SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=FullName}" Width="0.5*" />
-                    <DataGridTextColumn Binding="{Binding Path=YearOld}" Width="0.2*" />
-                    <DataGridTextColumn Binding="{Binding Path=Email}" Width="0.2*" />
-                    <DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Customer name" Binding="{Binding Path=FullName}" Width="*"/>
+                    <DataGridTextColumn Header="Year old" Binding="{Binding Path=YearOld}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}"/>
+                    <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Show" Width="80"
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Show" Width="80"
                                         Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.OpenCustomerDetailsCommand}"
                                         CommandParameter="{Binding Path=.}" />
+                                    <Button Content="Delete" Width="80"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteCustomerCommand}"
+                                        CommandParameter="{Binding Path=.}" />
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Delete" Width="80"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteCustomerCommand}"
-                                        CommandParameter="{Binding Path=.}" />
+
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

@@ -12,6 +12,11 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             get { return new CreateNewOrderViewModelDesign(); }
         }
 
+        public CustomerListViewModelDesign CustomerListViewModel
+        {
+            get { return new CustomerListViewModelDesign(); }
+        }
+
         public class CreateNewOrderViewModelDesign
         {
             public List<CustomerListItem> Customers { get; set; }
@@ -39,6 +44,20 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
                     new OrderItemViewModel {Product = Products.Last(), Amount = 5}
                 };
             }
+        }
+    }
+
+    public class CustomerListViewModelDesign
+    {
+        public List<CustomerListItem> Customers { get; private set; }
+
+        public CustomerListViewModelDesign()
+        {
+            Customers = new List<CustomerListItem>
+            {
+                new CustomerListItem{FullName = "TEST test", Email = "test@test.fr", YearOld = 35},
+                new CustomerListItem{FullName = "MARTIN jean", Email = "jean.martin@gmail.com", YearOld = 29}
+            };
         }
     }
 }
