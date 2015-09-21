@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -62,9 +63,15 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
 
         public async void Boot()
         {
-            Customers = await Async(() => _customerListService.GetCustomers());
             OrderItems = new ObservableCollection<OrderItemViewModel>();
-            Products = await Async(() => _productListService.GetProducts());
+            
+            var customerTask = Async(() => _customerListService.GetCustomers());
+            var productTask = Async(() => _productListService.GetProducts());
+
+            await Async(() => Task.WaitAll(customerTask, productTask));
+
+            Customers = customerTask.Result;
+            Products = productTask.Result;
         }
 
         private void CreateNewOrder()
