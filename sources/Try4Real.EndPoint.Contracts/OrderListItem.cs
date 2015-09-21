@@ -8,5 +8,6 @@ namespace Try4Real.EndPoint.Contracts
         public DateTime CreationDate { get; set; }
         public string CustomerFullName { get; set; }
         public int TotalAmount { get; set; }
+        public int OrderItemCount { get; set; }
     }
 }

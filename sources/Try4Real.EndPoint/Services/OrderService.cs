@@ -39,6 +39,7 @@ namespace Try4Real.EndPoint.Services
                     OrderId = x.OrderId.Value,
                     CreationDate = x.CreationDate,
                     CustomerFullName = x.CustomerFullName,
+                    OrderItemCount = x.OrderItemCount,
                     TotalAmount = 0
                 }).ToArray();
         }

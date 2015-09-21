@@ -16,6 +16,7 @@ namespace Try4Real.Domain.Model.Order
         public DateTime? PendingEndDate { get; private set; }
         public CustomerId CustomerId { get; private set; }
         public DateTime CreationDate { get; private set; }
+        public int ItemCount { get { return _lines.Count; } }
 
         public Order(CustomerId customerId)
         {

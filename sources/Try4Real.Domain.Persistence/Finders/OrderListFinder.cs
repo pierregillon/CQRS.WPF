@@ -24,6 +24,7 @@ namespace Try4Real.Domain.Infrastructure.Finders
                             OrderId = order.Id,
                             CreationDate = order.CreationDate,
                             CustomerFullName = customer.FirstName + " "+ customer.LastName,
+                            OrderItemCount = order.ItemCount
                         };
 
             return query.ToArray();

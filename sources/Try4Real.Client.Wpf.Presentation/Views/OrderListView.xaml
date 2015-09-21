@@ -23,8 +23,9 @@
                       SelectedItem="{Binding Path=SelectedOrder, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=Date}" Width="0.5*" />
+                    <DataGridTextColumn Binding="{Binding Path=CreationDate}" Width="0.5*" />
                     <DataGridTextColumn Binding="{Binding Path=CustomerFullName}" Width="0.2*" />
+                    <DataGridTextColumn Binding="{Binding Path=OrderItemCount}" Width="0.2*" />
                     <DataGridTextColumn Binding="{Binding Path=TotalAmount}" Width="0.2*" />
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

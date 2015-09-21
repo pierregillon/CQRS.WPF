@@ -8,5 +8,6 @@ namespace Try4Real.Domain.Presentation
         public OrderId OrderId { get; set; }
         public DateTime CreationDate { get; set; }
         public string CustomerFullName { get; set; }
+        public int OrderItemCount { get; set; }
     }
 }
