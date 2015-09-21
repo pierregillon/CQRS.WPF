@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -15,6 +14,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
     {
         private readonly ICustomerListService _customerListService;
         private readonly IOrderDetailService _orderDetailService;
+        private readonly IProductListService _productListService;
 
         public bool IsVisible
         {
@@ -36,18 +36,23 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             get { return GetNotifiableProperty<ObservableCollection<OrderItemViewModel>>("OrderItems"); }
             private set { SetNotifiableProperty("OrderItems", value); }
         }
-        public IEnumerable<ProductItem> Products
+        public IEnumerable<ProductListItem> Products
         {
-            get { return GetNotifiableProperty<IEnumerable<ProductItem>>("Products"); }
+            get { return GetNotifiableProperty<IEnumerable<ProductListItem>>("Products"); }
             set { SetNotifiableProperty("Products", value); }
         }
         public ICommand CreateNewOrderItemCommand { get; private set; }
         public ICommand SaveCommand { get; private set; }
 
-        public CreateNewOrderViewModel(IMessenger messenger, ICustomerListService customerListService, IOrderDetailService orderDetailService)
+        public CreateNewOrderViewModel(
+            IMessenger messenger, 
+            ICustomerListService customerListService, 
+            IOrderDetailService orderDetailService,
+            IProductListService productListService)
         {
             _customerListService = customerListService;
             _orderDetailService = orderDetailService;
+            _productListService = productListService;
 
             CreateNewOrderItemCommand = new RelayCommand(CreateNewOrder);
             SaveCommand = new RelayCommand(Save);
@@ -59,11 +64,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
         {
             Customers = await Async(() => _customerListService.GetCustomers());
             OrderItems = new ObservableCollection<OrderItemViewModel>();
-            Products = new List<ProductItem>
-            {
-                new ProductItem {Id=Guid.NewGuid(), Name = "Jacket"},
-                new ProductItem {Id=Guid.NewGuid(), Name = "Book"},
-            };
+            Products = await Async(() => _productListService.GetProducts());
         }
 
         private void CreateNewOrder()

@@ -57,17 +57,21 @@
     <Compile Include="Commands\UpdateCustomerCommand.cs" />
     <Compile Include="Commands\UpdateCustomerCommandHandler.cs" />
     <Compile Include="Model\Order\OrderStatus.cs" />
+    <Compile Include="Model\ProductCatalog\Product.cs" />
     <Compile Include="Model\User\Customer.cs" />
     <Compile Include="Model\User\CustomerId.cs" />
     <Compile Include="Model\User\ICustomerRepository.cs" />
-    <Compile Include="Model\Order\ProductId.cs" />
+    <Compile Include="Model\ProductCatalog\ProductId.cs" />
     <Compile Include="Presentation\CustomerDetails.cs" />
     <Compile Include="Presentation\CustomerListItemDto.cs" />
     <Compile Include="Presentation\ICustomerListFinder.cs" />
     <Compile Include="Presentation\IOrderListFinder.cs" />
+    <Compile Include="Presentation\IProductFinder.cs" />
     <Compile Include="Presentation\OrderListItem.cs" />
+    <Compile Include="Presentation\ProductListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

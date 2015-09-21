@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
+namespace Try4Real.EndPoint.Contracts
 {
-    public class ProductItem
+    public class ProductListItem
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

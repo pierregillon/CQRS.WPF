@@ -10,6 +10,7 @@ namespace Try4Real.Client.Wpf.RemoteDataAccess
         {
             container.RegisterSingleton<ICustomerService, CustomerServiceClient>();
             container.RegisterSingleton<IOrderService, OrderServiceClient>();
+            container.RegisterSingleton<IProductService, ProductServiceClient>();
         }
     }
 }

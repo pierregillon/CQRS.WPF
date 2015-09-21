@@ -2,6 +2,7 @@
 using System.Linq;
 using Try4Real.Domain.Commands;
 using Try4Real.Domain.Model.Order;
+using Try4Real.Domain.Model.ProductCatalog;
 using Try4Real.Domain.Model.User;
 using Try4Real.Domain.Presentation;
 using Try4Real.EndPoint.Contracts;

@@ -51,6 +51,7 @@
     <Compile Include="Services\Gate.cs" />
     <Compile Include="Services\IGate.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ProductService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Try4Real.Domain.Persistence\Domain.Infrastructure.csproj">

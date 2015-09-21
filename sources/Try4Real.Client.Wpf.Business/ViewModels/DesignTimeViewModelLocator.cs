@@ -17,7 +17,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
             public List<CustomerListItem> Customers { get; set; }
             public List<OrderItemViewModel> OrderItems { get; set; }
             public CustomerListItem SelectedCustomer { get; set; }
-            public List<ProductItem> Products { get; set; }
+            public List<ProductListItem> Products { get; set; }
 
             public CreateNewOrderViewModelDesign()
             {
@@ -26,11 +26,11 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
                     new CustomerListItem {FullName = "TEST test"}
                 };
                 SelectedCustomer = Customers.Single();
-                
-                Products = new List<ProductItem>
+
+                Products = new List<ProductListItem>
                 {
-                    new ProductItem {Name = "Jacket"},
-                    new ProductItem {Name = "Book"},
+                    new ProductListItem {Name = "Jacket"},
+                    new ProductListItem {Name = "Book"},
                 };
 
                 OrderItems = new List<OrderItemViewModel>

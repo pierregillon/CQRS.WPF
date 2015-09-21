@@ -1,0 +1,6 @@
+﻿<%@ ServiceHost 
+    Language="C#" 
+    Debug="true" 
+    Service="Try4Real.EndPoint.Services.ProductService" 
+    Factory="Try4Real.WebHosting.DependencyInjection.DependencyInjectionHostFactory" 
+%>

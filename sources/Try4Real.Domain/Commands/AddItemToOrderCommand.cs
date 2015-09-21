@@ -1,4 +1,5 @@
 ﻿using Try4Real.Domain.Model.Order;
+using Try4Real.Domain.Model.ProductCatalog;
 
 namespace Try4Real.Domain.Commands
 {

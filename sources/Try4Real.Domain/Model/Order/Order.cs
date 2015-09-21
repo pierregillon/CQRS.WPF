@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Try4Real.Domain.Model.ProductCatalog;
 using Try4Real.Domain.Model.User;
 
 namespace Try4Real.Domain.Model.Order

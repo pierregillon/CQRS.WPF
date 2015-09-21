@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\IProductListService.cs" />
+    <Compile Include="Services\ProductListService.cs" />
     <Compile Include="ViewModels\DesignTimeViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CustomerListService.cs" />
@@ -87,7 +89,6 @@
     <Compile Include="ViewModels\Users\OpenCustomerDetailsMessage.cs" />
     <Compile Include="ViewModels\Orders\OrderItemViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrderListViewModel.cs" />
-    <Compile Include="ViewModels\Orders\ProductItem.cs" />
     <Compile Include="ViewModels\Base\ViewModelFactory.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>

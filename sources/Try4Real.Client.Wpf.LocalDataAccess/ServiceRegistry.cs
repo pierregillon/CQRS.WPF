@@ -13,6 +13,7 @@ namespace Try4Real.Client.Wpf.LocalDataAccess
 
             container.RegisterSingleton(serverIoc.GetInstance<ICustomerService>);
             container.RegisterSingleton(serverIoc.GetInstance<IOrderService>);
+            container.RegisterSingleton(serverIoc.GetInstance<IProductService>);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Try4Real.Domain.Model.Order;
+using Try4Real.Domain.Model.ProductCatalog;
 using Try4Real.Domain.Model.User;
 
 namespace Try4Real.Domain.Infrastructure
@@ -17,6 +18,9 @@ namespace Try4Real.Domain.Infrastructure
 
             Set<Customer>().Add(customer);
             Set<Order>().Add(order);
+
+            Set<Product>().Add(new Product("Jacket"));
+            Set<Product>().Add(new Product("Book"));
         }
 
         public IList<T> Set<T>()

@@ -27,11 +27,13 @@ namespace Try4Real.EndPoint
         {
             _container.Register<ICustomerService, CustomerService>();
             _container.Register<IOrderService, OrderService>();
+            _container.Register<IProductService, ProductService>();
             
             _container.Register<ICustomerListFinder, CustomerListFinder>();
             _container.Register<IOrderListFinder, OrderListFinder>();
             _container.Register<ICustomerRepository, CustomerRepository>();
             _container.Register<IOrderRepository, OrderRepository>();
+            _container.Register<IProductFinder, ProductFinder>();
 
             _container.Register<IGate, Gate>();
             _container.RegisterManyForOpenGeneric(typeof(ICommandHandler<>), typeof(ICommandHandler<>).Assembly);

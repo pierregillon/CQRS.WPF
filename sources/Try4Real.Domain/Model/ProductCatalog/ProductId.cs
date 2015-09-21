@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Try4Real.Domain.Model.Order
+namespace Try4Real.Domain.Model.ProductCatalog
 {
     public struct ProductId
     {
