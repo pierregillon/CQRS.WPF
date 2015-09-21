@@ -9,7 +9,7 @@ using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 using Try4Real.EndPoint.Contracts;
 
-namespace Try4Real.Client.Wpf.Business.ViewModels
+namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
 {
     public class CreateNewOrderViewModel : LoadingViewModelBase, IViewModelDialog
     {

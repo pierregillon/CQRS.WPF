@@ -3,8 +3,10 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
+using Try4Real.Client.Wpf.Business.ViewModels.Orders;
+using Try4Real.Client.Wpf.Business.ViewModels.Users;
 
-namespace Try4Real.Client.Wpf.Business.ViewModels
+namespace Try4Real.Client.Wpf.Business.ViewModels.Main
 {
     public class MainViewModel : ViewModelBase
     {

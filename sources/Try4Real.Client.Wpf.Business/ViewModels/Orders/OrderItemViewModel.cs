@@ -1,4 +1,4 @@
-﻿namespace Try4Real.Client.Wpf.Business.ViewModels
+﻿namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
 {
     public class OrderItemViewModel
     {

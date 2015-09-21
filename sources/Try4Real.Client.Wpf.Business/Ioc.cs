@@ -3,6 +3,10 @@ using SimpleInjector;
 using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels;
+using Try4Real.Client.Wpf.Business.ViewModels.Base;
+using Try4Real.Client.Wpf.Business.ViewModels.Main;
+using Try4Real.Client.Wpf.Business.ViewModels.Orders;
+using Try4Real.Client.Wpf.Business.ViewModels.Users;
 
 namespace Try4Real.Client.Wpf.Business
 {

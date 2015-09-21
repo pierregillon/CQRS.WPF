@@ -1,6 +1,6 @@
 using System;
 
-namespace Try4Real.Client.Wpf.Business.ViewModels
+namespace Try4Real.Client.Wpf.Business.ViewModels.Users
 {
     internal class OpenCustomerDetailsMessage
     {

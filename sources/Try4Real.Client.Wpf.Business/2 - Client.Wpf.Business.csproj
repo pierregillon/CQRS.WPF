@@ -72,23 +72,23 @@
     <Compile Include="Services\OrderListService.cs" />
     <Compile Include="ViewModels\Base\LoadingViewModelBase.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
-    <Compile Include="ViewModels\CreateNewOrderMessage.cs" />
-    <Compile Include="ViewModels\CreateNewOrderViewModel.cs" />
-    <Compile Include="ViewModels\CustomerDetailViewModel.cs" />
-    <Compile Include="ViewModels\CustomerListViewModel.cs" />
+    <Compile Include="ViewModels\Orders\CreateNewOrderMessage.cs" />
+    <Compile Include="ViewModels\Orders\CreateNewOrderViewModel.cs" />
+    <Compile Include="ViewModels\Users\CustomerDetailViewModel.cs" />
+    <Compile Include="ViewModels\Users\CustomerListViewModel.cs" />
     <Compile Include="Services\ICustomerDetailService.cs" />
     <Compile Include="Dialog\IDialogService.cs" />
     <Compile Include="Services\IOrderListService.cs" />
     <Compile Include="Services\IOrderDetailService.cs" />
-    <Compile Include="ViewModels\IViewModelDialog.cs" />
-    <Compile Include="ViewModels\IViewModelFactory.cs" />
-    <Compile Include="ViewModels\IViewModelTab.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\OpenCustomerDetailsMessage.cs" />
-    <Compile Include="ViewModels\OrderItemViewModel.cs" />
-    <Compile Include="ViewModels\OrderListViewModel.cs" />
-    <Compile Include="ViewModels\ProductItem.cs" />
-    <Compile Include="ViewModels\ViewModelFactory.cs" />
+    <Compile Include="ViewModels\Base\IViewModelDialog.cs" />
+    <Compile Include="ViewModels\Base\IViewModelFactory.cs" />
+    <Compile Include="ViewModels\Base\IViewModelTab.cs" />
+    <Compile Include="ViewModels\Main\MainViewModel.cs" />
+    <Compile Include="ViewModels\Users\OpenCustomerDetailsMessage.cs" />
+    <Compile Include="ViewModels\Orders\OrderItemViewModel.cs" />
+    <Compile Include="ViewModels\Orders\OrderListViewModel.cs" />
+    <Compile Include="ViewModels\Orders\ProductItem.cs" />
+    <Compile Include="ViewModels\Base\ViewModelFactory.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +100,7 @@
       <Name>EndPoint.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

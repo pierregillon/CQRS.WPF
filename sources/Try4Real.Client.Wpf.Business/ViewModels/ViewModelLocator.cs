@@ -1,4 +1,8 @@
-﻿namespace Try4Real.Client.Wpf.Business.ViewModels
+﻿using Try4Real.Client.Wpf.Business.ViewModels.Main;
+using Try4Real.Client.Wpf.Business.ViewModels.Orders;
+using Try4Real.Client.Wpf.Business.ViewModels.Users;
+
+namespace Try4Real.Client.Wpf.Business.ViewModels
 {
     public class ViewModelLocator
     {

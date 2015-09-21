@@ -3,17 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:Try4Real.Client.Wpf.Presentation.Views"
         xmlns:viewModels="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels;assembly=Try4Real.Client.Wpf.Business"
+        xmlns:main="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels.Main;assembly=Try4Real.Client.Wpf.Business"
+        xmlns:orders="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels.Orders;assembly=Try4Real.Client.Wpf.Business"
+        xmlns:users="clr-namespace:Try4Real.Client.Wpf.Business.ViewModels.Users;assembly=Try4Real.Client.Wpf.Business"
         Title="Customer application" Height="350" Width="525"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <DataTemplate DataType="{x:Type viewModels:CustomerListViewModel}">
+        <DataTemplate DataType="{x:Type users:CustomerListViewModel}">
             <views:CustomerListView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:OrderListViewModel}">
+        <DataTemplate DataType="{x:Type orders:OrderListViewModel}">
             <views:OrderListView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:CustomerDetailViewModel}">
+        <DataTemplate DataType="{x:Type users:CustomerDetailViewModel}">
             <views:CustomerDetailView/>
         </DataTemplate>
     </Window.Resources>

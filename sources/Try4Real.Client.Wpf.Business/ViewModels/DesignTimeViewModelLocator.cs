@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Try4Real.Client.Wpf.Business.ViewModels.Orders;
 using Try4Real.EndPoint.Contracts;
 
 namespace Try4Real.Client.Wpf.Business.ViewModels
