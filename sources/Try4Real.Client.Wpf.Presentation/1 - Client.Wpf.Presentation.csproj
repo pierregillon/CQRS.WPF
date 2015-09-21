@@ -89,9 +89,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dialog\DefaultWindowFactory.cs" />
     <Compile Include="Dialog\DialogContainer.cs" />
     <Compile Include="Dialog\DialogService.cs" />
     <Compile Include="Dialog\DialogViewModelContainer.cs" />
+    <Compile Include="Dialog\IWindowFactory.cs" />
     <Compile Include="Dialog\MessageBoxResultExtensions.cs" />
     <Compile Include="Dialog\ViewModelChangedEventArgs.cs" />
     <Compile Include="Views\CreateNewOrderView.xaml.cs">
