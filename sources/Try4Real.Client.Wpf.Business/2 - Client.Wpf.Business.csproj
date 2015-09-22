@@ -93,7 +93,7 @@
     <Compile Include="ViewModels\Base\IViewModelFactory.cs" />
     <Compile Include="ViewModels\Base\IViewModelTab.cs" />
     <Compile Include="ViewModels\Main\MainViewModel.cs" />
-    <Compile Include="ViewModels\Users\OpenCustomerDetailsMessage.cs" />
+    <Compile Include="ViewModels\Users\DisplayCustomerDetailsMessage.cs" />
     <Compile Include="ViewModels\Orders\OrderItemViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrderListViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelFactory.cs" />

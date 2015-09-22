@@ -42,7 +42,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
         public ICommand CreateCustomerCommand { get; private set; }
         public IAsyncCommand RefreshCommand { get; private set; }
         public ICommand DeleteCustomerCommand { get; private set; }
-        public ICommand OpenCustomerDetailsCommand { get; private set; }
+        public ICommand DisplayCustomerDetailsCommand { get; private set; }
 
         // ----- Constructors
         public CustomerListViewModel(
@@ -57,7 +57,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             CreateCustomerCommand = new AsyncCommand(CreateCustomer);
             RefreshCommand = new AsyncCommand(RefreshCustomerList);
             DeleteCustomerCommand = new RelayCommand<CustomerListItem>(DeleteCustomer);
-            OpenCustomerDetailsCommand = new RelayCommand<CustomerListItem>(OpenCustomerDetails);
+            DisplayCustomerDetailsCommand = new RelayCommand<CustomerListItem>(DisplayCustomerDetails);
         }
 
         // ----- Overrides
@@ -89,11 +89,11 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
                 }
             });
         }
-        private void OpenCustomerDetails(CustomerListItem customerListItem)
+        private void DisplayCustomerDetails(CustomerListItem customerListItem)
         {
             var item = customerListItem ?? SelectedCustomer;
             if (item != null) {
-                _messenger.Send(new OpenCustomerDetailsMessage(item.Id));
+                _messenger.Send(new DisplayCustomerDetailsMessage(item.Id));
             }
         }
         private async Task RefreshCustomerList()

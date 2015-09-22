@@ -40,7 +40,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Main
             Tabs = new ObservableCollection<IViewModelTab>();
             CloseTabCommand = new RelayCommand<IViewModelTab>(CloseTab);
 
-            messenger.Register<OpenCustomerDetailsMessage>(this, OpenCustomerDetailsMessageReceived);
+            messenger.Register<DisplayCustomerDetailsMessage>(this, OpenCustomerDetailsMessageReceived);
         }
 
         public async Task Boot()
@@ -59,12 +59,12 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Main
             Tabs.Remove(viewModelTab);
         }
 
-        private async void OpenCustomerDetailsMessageReceived(OpenCustomerDetailsMessage openCustomerDetailsMessage)
+        private async void OpenCustomerDetailsMessageReceived(DisplayCustomerDetailsMessage displayCustomerDetailsMessage)
         {
             var detailViewModel = _customerDetailViewModelFactory.Build();
             Tabs.Add(detailViewModel);
             SelectedTab = detailViewModel;
-            await detailViewModel.Boot(openCustomerDetailsMessage.CustomerId);
+            await detailViewModel.Boot(displayCustomerDetailsMessage.CustomerId);
         }
     }
 }

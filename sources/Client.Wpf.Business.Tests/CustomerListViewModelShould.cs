@@ -72,11 +72,11 @@ namespace Client.Wpf.Business.Tests
         {
             // Arrange
             _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(SOME_CUSTOMERS.Union(new[] {A_CUSTOMER}));
-            var expectedMessage = new OpenCustomerDetailsMessage(A_CUSTOMER.Id);
+            var expectedMessage = new DisplayCustomerDetailsMessage(A_CUSTOMER.Id);
 
             // Acts
             _customerListViewModel.Boot().Wait();
-            _customerListViewModel.OpenCustomerDetailsCommand.Execute(A_CUSTOMER);
+            _customerListViewModel.DisplayCustomerDetailsCommand.Execute(A_CUSTOMER);
 
             // Asserts
             _messengerServiceMock.Verify(x => x.Send(expectedMessage), Times.Once);

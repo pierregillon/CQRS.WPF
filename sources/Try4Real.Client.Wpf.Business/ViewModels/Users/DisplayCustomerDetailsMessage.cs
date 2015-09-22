@@ -2,18 +2,18 @@ using System;
 
 namespace Try4Real.Client.Wpf.Business.ViewModels.Users
 {
-    public class OpenCustomerDetailsMessage
+    public class DisplayCustomerDetailsMessage
     {
         public Guid CustomerId { get; private set; }
 
-        public OpenCustomerDetailsMessage(Guid customerId)
+        public DisplayCustomerDetailsMessage(Guid customerId)
         {
             CustomerId = customerId;
         }
 
         public override bool Equals(object obj)
         {
-            var message = obj as OpenCustomerDetailsMessage;
+            var message = obj as DisplayCustomerDetailsMessage;
             if (message == null) {
                 return base.Equals(obj);
             }
