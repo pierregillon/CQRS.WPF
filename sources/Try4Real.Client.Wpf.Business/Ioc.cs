@@ -36,10 +36,11 @@ namespace Try4Real.Client.Wpf.Business
             _container.RegisterSingleton<IProductListService, ProductListService>();
 
             _container.RegisterSingleton<MainViewModel>();
+            _container.RegisterSingleton<CreateNewOrderViewModel>();
+
             _container.Register<CustomerListViewModel>();
-            _container.Register<CustomerDetailViewModel>();
             _container.Register<OrderListViewModel>();
-            _container.Register<CreateNewOrderViewModel>();
+            _container.Register<CustomerDetailViewModel>();
 
             _container.RegisterSingleton(() => Messenger.Default);
 
