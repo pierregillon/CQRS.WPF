@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.Services;
@@ -55,7 +54,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             _orderDetailService = orderDetailService;
             _productListService = productListService;
 
-            CreateNewOrderItemCommand = new RelayCommand(CreateNewOrder);
+            CreateNewOrderItemCommand = new Command(CreateNewOrder);
             SaveCommand = new AsyncCommand(Save);
 
             messenger.Register<CreateNewOrderMessage>(this, CreateNewOrderMessageReceived);

@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
@@ -43,7 +41,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             _orderListService = orderListService;
             Orders = new ObservableCollection<OrderListItem>();
 
-            CreateOrderCommand = new RelayCommand(CreateOrder);
+            CreateOrderCommand = new Command(CreateOrder);
             RefreshCommand = new AsyncCommand(Refresh);
         }
 

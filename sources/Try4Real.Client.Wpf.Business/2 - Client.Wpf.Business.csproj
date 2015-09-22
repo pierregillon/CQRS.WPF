@@ -77,7 +77,9 @@
     <Compile Include="Dialog\Answers.cs" />
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderListService.cs" />
+    <Compile Include="ViewModels\Base\ICommand.cs" />
     <Compile Include="ViewModels\Base\LoadingViewModelBase.cs" />
+    <Compile Include="ViewModels\Base\Command.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
     <Compile Include="ViewModels\Orders\CreateNewOrderMessage.cs" />
     <Compile Include="ViewModels\Orders\CreateNewOrderViewModel.cs" />

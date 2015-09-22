@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
@@ -39,10 +38,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             get { return GetNotifiableProperty<CustomerListItem>("SelectedCustomer"); }
             set { SetNotifiableProperty("SelectedCustomer", value); }
         }
-        public ICommand CreateCustomerCommand { get; private set; }
+        public IAsyncCommand CreateCustomerCommand { get; private set; }
         public IAsyncCommand RefreshCommand { get; private set; }
         public IAsyncCommand<CustomerListItem> DeleteCustomerCommand { get; private set; }
-        public ICommand DisplayCustomerDetailsCommand { get; private set; }
+        public ICommand<CustomerListItem> DisplayCustomerDetailsCommand { get; private set; }
 
         // ----- Constructors
         public CustomerListViewModel(
@@ -57,7 +56,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             CreateCustomerCommand = new AsyncCommand(CreateCustomer);
             RefreshCommand = new AsyncCommand(RefreshCustomerList);
             DeleteCustomerCommand = new AsyncCommand<CustomerListItem>(DeleteCustomer);
-            DisplayCustomerDetailsCommand = new RelayCommand<CustomerListItem>(DisplayCustomerDetails);
+            DisplayCustomerDetailsCommand = new Command<CustomerListItem>(DisplayCustomerDetails);
         }
 
         // ----- Overrides

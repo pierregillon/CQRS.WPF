@@ -1,11 +1,10 @@
 using System;
-using System.Threading.Tasks;
 
 namespace Try4Real.Client.Wpf.Business.ViewModels.Base
 {
-    public class AsyncCommand : IAsyncCommand, System.Windows.Input.ICommand
+    public class Command : ICommand, System.Windows.Input.ICommand
     {
-        private readonly Func<Task> _execute;
+        private readonly Action _execute;
         private readonly Func<bool> _canExecute;
 
         public event EventHandler CanExecuteChanged;
@@ -15,19 +14,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        public AsyncCommand(Func<Task> execute, Func<bool> canExecute = null)
+        public Command(Action execute, Func<bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
-        }
-
-        bool System.Windows.Input.ICommand.CanExecute(object parameter)
-        {
-            return CanExecute();
-        }
-        async void System.Windows.Input.ICommand.Execute(object parameter)
-        {
-            await ExecuteAsync();
         }
 
         public bool CanExecute()
@@ -37,15 +27,23 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             }
             return _canExecute();
         }
-        public Task ExecuteAsync()
+        public void Execute()
         {
-            return _execute();
+            _execute();
+        }
+        bool System.Windows.Input.ICommand.CanExecute(object parameter)
+        {
+            return CanExecute();
+        }
+        void System.Windows.Input.ICommand.Execute(object parameter)
+        {
+            Execute();
         }
     }
 
-    public class AsyncCommand<T> : IAsyncCommand<T>, System.Windows.Input.ICommand
+    public class Command<T> : ICommand<T>, System.Windows.Input.ICommand
     {
-        private readonly Func<T, Task> _execute;
+        private readonly Action<T> _execute;
         private readonly Func<T, bool> _canExecute;
 
         public event EventHandler CanExecuteChanged;
@@ -55,19 +53,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        public AsyncCommand(Func<T, Task> execute, Func<T, bool> canExecute = null)
+        public Command(Action<T> execute, Func<T, bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
-        }
-
-        bool System.Windows.Input.ICommand.CanExecute(object parameter)
-        {
-            return CanExecute((T) parameter);
-        }
-        async void System.Windows.Input.ICommand.Execute(object parameter)
-        {
-            await ExecuteAsync((T) parameter);
         }
 
         public bool CanExecute(T parameter)
@@ -77,9 +66,17 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             }
             return _canExecute(parameter);
         }
-        public Task ExecuteAsync(T parameter)
+        public void Execute(T parameter)
         {
-            return _execute(parameter);
+            _execute(parameter);
+        }
+        bool System.Windows.Input.ICommand.CanExecute(object parameter)
+        {
+            return CanExecute((T) parameter);
+        }
+        void System.Windows.Input.ICommand.Execute(object parameter)
+        {
+            Execute((T) parameter);
         }
     }
 }
