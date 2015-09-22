@@ -32,7 +32,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Content="Show" Width="80"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.OpenCustomerDetailsCommand}"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DisplayCustomerDetailsCommand}"
                                         CommandParameter="{Binding Path=.}" />
                                     <Button Content="Delete" Width="80"
                                         Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteCustomerCommand}"
@@ -51,7 +51,7 @@
                 </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="PreviewMouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding Path=OpenCustomerDetailsCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding Path=DisplayCustomerDetailsCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
