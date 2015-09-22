@@ -199,7 +199,7 @@ namespace Client.Wpf.Business.Tests
         };
         private readonly IEnumerable<CustomerListItem> INITIAL_CUSTOMERS = new[]
         {
-            new CustomerListItem(),
+            new CustomerListItem{Id = Guid.NewGuid()},
             new CustomerListItem(),
         };
         private readonly CustomerListItem A_CUSTOMER = new CustomerListItem { Id = Guid.NewGuid() };
