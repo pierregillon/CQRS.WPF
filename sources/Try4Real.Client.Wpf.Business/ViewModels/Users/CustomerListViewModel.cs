@@ -41,7 +41,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
         }
         public ICommand CreateCustomerCommand { get; private set; }
         public IAsyncCommand RefreshCommand { get; private set; }
-        public ICommand DeleteCustomerCommand { get; private set; }
+        public IAsyncCommand<CustomerListItem> DeleteCustomerCommand { get; private set; }
         public ICommand DisplayCustomerDetailsCommand { get; private set; }
 
         // ----- Constructors
@@ -56,7 +56,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
 
             CreateCustomerCommand = new AsyncCommand(CreateCustomer);
             RefreshCommand = new AsyncCommand(RefreshCustomerList);
-            DeleteCustomerCommand = new RelayCommand<CustomerListItem>(DeleteCustomer);
+            DeleteCustomerCommand = new AsyncCommand<CustomerListItem>(DeleteCustomer);
             DisplayCustomerDetailsCommand = new RelayCommand<CustomerListItem>(DisplayCustomerDetails);
         }
 
@@ -79,15 +79,13 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
 
             await RefreshCustomerList();
         }
-        private void DeleteCustomer(CustomerListItem customerListItem)
+        private async Task DeleteCustomer(CustomerListItem customerListItem)
         {
-            _dialogService.AskQuestion("Delete customer", "Are you sure to delete the customer '' ?", async answer =>
-            {
-                if (answer == Answers.Yes) {
-                    await Async(() => _customerListService.DeleteCustomer(customerListItem.Id));
-                    Customers.Remove(customerListItem);
-                }
-            });
+            var answer = _dialogService.AskQuestion("Delete customer", "Are you sure to delete the customer '" + customerListItem.FullName + "' ?");
+            if (answer == Answers.Yes) {
+                await Async(() => _customerListService.DeleteCustomer(customerListItem.Id));
+                Customers.Remove(customerListItem);
+            }
         }
         private void DisplayCustomerDetails(CustomerListItem customerListItem)
         {

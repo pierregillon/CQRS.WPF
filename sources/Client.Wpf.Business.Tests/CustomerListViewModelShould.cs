@@ -116,6 +116,55 @@ namespace Client.Wpf.Business.Tests
             Check.That(_customerListViewModel.Customers).Contains(SOME_OTHER_CUSTOMERS);
         }
 
+        [Fact]
+        public void ask_confirmation_when_deleting_customer()
+        {
+            var customerToDelete = INITIAL_CUSTOMERS.First();
+            customerToDelete.FullName = "MARTIN jean";
+
+            _customerListViewModel.DeleteCustomerCommand.ExecuteAsync(customerToDelete);
+
+            _dialogServiceMock.Verify(x=> x.AskQuestion(
+                "Delete customer", 
+                "Are you sure to delete the customer 'MARTIN jean' ?"
+            ), Times.Once);
+        }
+
+        [Fact]
+        public void remove_customer_from_list_when_validating_the_delete_confirmation()
+        {
+            // Arrange
+            var customerToDelete = INITIAL_CUSTOMERS.First();
+
+            _dialogServiceMock
+                .Setup(x => x.AskQuestion(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(Answers.Yes);
+
+            // Acts
+            _customerListViewModel.DeleteCustomerCommand.ExecuteAsync(customerToDelete).Wait();
+
+
+            // Asserts
+            Check.That(_customerListViewModel.Customers).Not.Contains(customerToDelete);
+        }
+
+        [Fact]
+        public void call_delete_customer_service_when_validating_the_delete_confirmation()
+        {
+            // Arrange
+            var customerToDelete = INITIAL_CUSTOMERS.First();
+
+            _dialogServiceMock
+                .Setup(x => x.AskQuestion(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(Answers.Yes);
+
+            // Acts
+            _customerListViewModel.DeleteCustomerCommand.ExecuteAsync(customerToDelete).Wait();
+
+            // Asserts
+            _customerListServiceMock.Verify(x=>x.DeleteCustomer(customerToDelete.Id), Times.Once);
+        }
+
         // ----- Private methods
         private void Wait()
         {

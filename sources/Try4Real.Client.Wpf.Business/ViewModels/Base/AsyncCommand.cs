@@ -44,7 +44,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
         }
     }
 
-    public class TaskCommand<T> : ICommand, IAsyncCommand<T>
+    public class AsyncCommand<T> : ICommand, IAsyncCommand<T>
     {
         private readonly Func<T, Task> _execute;
         private readonly Func<T, bool> _canExecute;
@@ -56,7 +56,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        public TaskCommand(Func<T, Task> execute, Func<T, bool> canExecute = null)
+        public AsyncCommand(Func<T, Task> execute, Func<T, bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
