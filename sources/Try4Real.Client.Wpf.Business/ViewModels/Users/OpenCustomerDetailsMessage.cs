@@ -10,5 +10,14 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
         {
             CustomerId = customerId;
         }
+
+        public override bool Equals(object obj)
+        {
+            var message = obj as OpenCustomerDetailsMessage;
+            if (message == null) {
+                return base.Equals(obj);
+            }
+            return message.CustomerId == CustomerId;
+        }
     }
 }

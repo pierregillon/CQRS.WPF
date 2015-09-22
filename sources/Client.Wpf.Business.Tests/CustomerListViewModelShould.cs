@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight.Messaging;
 using Moq;
@@ -19,7 +20,7 @@ namespace Client.Wpf.Business.Tests
             new CustomerListItem(),
             new CustomerListItem(),
         };
-        private readonly CustomerListItem A_CUSTOMER = new CustomerListItem();
+        private readonly CustomerListItem A_CUSTOMER = new CustomerListItem{Id = Guid.NewGuid()};
 
         private readonly Mock<ICustomerListService> _customerListServiceMock;
         private readonly Mock<IDialogService> _dialogServiceMock;
@@ -30,7 +31,6 @@ namespace Client.Wpf.Business.Tests
             _messengerServiceMock = new Mock<IMessenger>();
             _customerListServiceMock = new Mock<ICustomerListService>();
             _dialogServiceMock = new Mock<IDialogService>();
-
             _customerListViewModel = new CustomerListViewModel(_messengerServiceMock.Object, _customerListServiceMock.Object, _dialogServiceMock.Object);
         }
 
@@ -72,13 +72,14 @@ namespace Client.Wpf.Business.Tests
         {
             // Arrange
             _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(SOME_CUSTOMERS.Union(new[] {A_CUSTOMER}));
+            var expectedMessage = new OpenCustomerDetailsMessage(A_CUSTOMER.Id);
 
             // Acts
             _customerListViewModel.Boot().Wait();
             _customerListViewModel.OpenCustomerDetailsCommand.Execute(A_CUSTOMER);
 
             // Asserts
-            _messengerServiceMock.Verify(x => x.Send(It.IsAny<OpenCustomerDetailsMessage>()), Times.Once);
+            _messengerServiceMock.Verify(x => x.Send(expectedMessage), Times.Once);
         }
     }
 }
