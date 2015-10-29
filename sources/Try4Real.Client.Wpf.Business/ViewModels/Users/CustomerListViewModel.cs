@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
+using Mvvm.Async;
 using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
