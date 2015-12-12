@@ -21,7 +21,7 @@ namespace Try4Real.EndPoint.WCF.DependencyInjection
 
         public object GetInstance(InstanceContext instanceContext, Message message)
         {
-            return Global.CurrentDomainEntry.GetService(_serviceType);
+            return Global.CurrentDomainGate.GetService(_serviceType);
         }
 
         public void ReleaseInstance(InstanceContext instanceContext, object instance) { }

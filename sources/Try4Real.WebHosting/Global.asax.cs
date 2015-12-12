@@ -4,11 +4,11 @@ namespace Try4Real.EndPoint.WCF
 {
     public class Global : System.Web.HttpApplication
     {
-        public static DomainEntry CurrentDomainEntry;
+        public static DomainGate CurrentDomainGate;
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            CurrentDomainEntry = new DomainEntry();
+            CurrentDomainGate = new DomainGate();
         }
 
         protected void Session_Start(object sender, EventArgs e)

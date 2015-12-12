@@ -8,7 +8,7 @@ namespace Try4Real.Client.Wpf.LocalDataAccess
     {
         public void RegisterService(Container clientContainer)
         {
-            var domainEntry = new DomainEntry();
+            var domainEntry = new DomainGate();
 
             clientContainer.RegisterSingleton(domainEntry.CustomerService);
             clientContainer.RegisterSingleton(domainEntry.OrderService);

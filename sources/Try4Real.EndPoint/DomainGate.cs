@@ -6,7 +6,7 @@ using Try4Real.EndPoint.Services;
 
 namespace Try4Real.EndPoint
 {
-    public class DomainEntry
+    public class DomainGate
     {
         private readonly Container _container;
 
@@ -23,11 +23,12 @@ namespace Try4Real.EndPoint
             get { return _container.GetInstance<IProductService>(); }
         }
 
-        public DomainEntry()
+        public DomainGate()
         {
             _container = new Container();
 
             var domainRegistry = new Registry();
+
             domainRegistry.Register(_container);
 
             _container.Register<ICustomerService, CustomerService>();
