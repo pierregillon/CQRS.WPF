@@ -33,7 +33,6 @@ namespace Try4Real.EndPoint
             _container.Register<ICustomerService, CustomerService>();
             _container.Register<IOrderService, OrderService>();
             _container.Register<IProductService, ProductService>();
-            _container.Register<IGate, Gate>();
         }
         
         public object GetService(Type serviceType)

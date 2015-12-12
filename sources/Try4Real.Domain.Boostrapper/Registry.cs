@@ -21,6 +21,7 @@ namespace Try4Real.Domain.Boostrapper
             container.Register<IOrderRepository, OrderRepository>();
 
             container.RegisterCollection(typeof(ICommandHandler<>), typeof(ICommandHandler<>).Assembly);
+            container.Register<ICommandDispatcher, CommandDispatcher>();
             container.Register<IDatabase, InMemoryDatabase>(Lifestyle.Singleton);
         }
     }

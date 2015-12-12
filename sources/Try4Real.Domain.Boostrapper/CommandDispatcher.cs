@@ -2,13 +2,13 @@ using System.Linq;
 using SimpleInjector;
 using Try4Real.Domain.Commands.Base;
 
-namespace Try4Real.EndPoint.Services
+namespace Try4Real.Domain.Boostrapper
 {
-    public class Gate : IGate
+    public class CommandDispatcher : ICommandDispatcher
     {
         private readonly Container _container;
 
-        public Gate(Container container)
+        public CommandDispatcher(Container container)
         {
             _container = container;
         }

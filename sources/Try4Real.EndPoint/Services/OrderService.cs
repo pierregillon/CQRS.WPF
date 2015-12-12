@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Try4Real.Domain.Boostrapper;
 using Try4Real.Domain.Commands;
 using Try4Real.Domain.Model.Order;
 using Try4Real.Domain.Model.ProductCatalog;
@@ -13,21 +14,21 @@ namespace Try4Real.EndPoint.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly IGate _gate;
+        private readonly ICommandDispatcher _commandDispatcher;
         private readonly IOrderListFinder _orderListFinder;
 
-        public OrderService(IGate gate, IOrderListFinder orderListFinder)
+        public OrderService(ICommandDispatcher commandDispatcher, IOrderListFinder orderListFinder)
         {
-            _gate = gate;
+            _commandDispatcher = commandDispatcher;
             _orderListFinder = orderListFinder;
         }
 
         public void CreateOrder(CreateOrderRequest request)
         {
             var command = new CreateOrderCommand(CustomerId.From(request.CustomerId));
-            _gate.Dispatch(command);
+            _commandDispatcher.Dispatch(command);
             foreach (var orderItem in request.OrderItems) {
-                _gate.Dispatch(new AddItemToOrderCommand(command.OrderIdCreated, ProductId.From(orderItem.ProductId), orderItem.Quantity));
+                _commandDispatcher.Dispatch(new AddItemToOrderCommand(command.OrderIdCreated, ProductId.From(orderItem.ProductId), orderItem.Quantity));
             }
         }
 

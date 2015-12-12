@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Try4Real.Domain.Boostrapper;
 using Try4Real.Domain.Commands;
 using Try4Real.Domain.Model.User;
 using Try4Real.Domain.Presentation;
@@ -13,12 +14,12 @@ namespace Try4Real.EndPoint.Services
     public class CustomerService : ICustomerService
     {
         private readonly ICustomerListFinder _customerFinder;
-        private readonly IGate _gate;
+        private readonly ICommandDispatcher _commandDispatcher;
 
-        public CustomerService(ICustomerListFinder customerFinder, IGate gate)
+        public CustomerService(ICustomerListFinder customerFinder, ICommandDispatcher commandDispatcher)
         {
             _customerFinder = customerFinder;
-            _gate = gate;
+            _commandDispatcher = commandDispatcher;
         }
 
         public IEnumerable<CustomerListItem> GetCustomerListItems()
@@ -48,15 +49,15 @@ namespace Try4Real.EndPoint.Services
         }
         public void UpdateCustomerDetails(CustomerDetails customerDetails)
         {
-            _gate.Dispatch(new UpdateCustomerCommand(CustomerId.From(customerDetails.Id), customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
+            _commandDispatcher.Dispatch(new UpdateCustomerCommand(CustomerId.From(customerDetails.Id), customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
         }
         public void DeleteCustomer(Guid id)
         {
-            _gate.Dispatch(new DeleteCustomerCommand(CustomerId.From(id)));
+            _commandDispatcher.Dispatch(new DeleteCustomerCommand(CustomerId.From(id)));
         }
         public void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email)
         {
-            _gate.Dispatch(new CreateCustomerCommand(firstName, lastName, birthDate, email));
+            _commandDispatcher.Dispatch(new CreateCustomerCommand(firstName, lastName, birthDate, email));
         }
     }
 }
