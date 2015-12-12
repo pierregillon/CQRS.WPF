@@ -2,5 +2,5 @@
     Language="C#" 
     Debug="true" 
     Service="Try4Real.EndPoint.Services.CustomerService" 
-    Factory="Try4Real.WebHosting.DependencyInjection.DependencyInjectionHostFactory" 
+    Factory="Try4Real.EndPoint.WCF.DependencyInjection.DependencyInjectionHostFactory" 
 %>

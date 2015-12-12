@@ -1,13 +1,14 @@
 ﻿using System;
-using Try4Real.EndPoint;
 
-namespace Try4Real.WebHosting
+namespace Try4Real.EndPoint.WCF
 {
     public class Global : System.Web.HttpApplication
     {
+        public static DomainEntry CurrentDomainEntry;
+
         protected void Application_Start(object sender, EventArgs e)
         {
-            Ioc.Instance.Init();
+            CurrentDomainEntry = new DomainEntry();
         }
 
         protected void Session_Start(object sender, EventArgs e)

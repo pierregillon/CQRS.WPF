@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace Try4Real.WebHosting.DependencyInjection
+namespace Try4Real.EndPoint.WCF.DependencyInjection
 {
     public class DependencyInjectionServiceHost : ServiceHost
     {

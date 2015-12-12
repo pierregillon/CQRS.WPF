@@ -4,7 +4,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 
-namespace Try4Real.WebHosting.DependencyInjection
+namespace Try4Real.EndPoint.WCF.DependencyInjection
 {
     public class DependencyInjectionServiceBehavior : IServiceBehavior
     {

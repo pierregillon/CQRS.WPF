@@ -1,19 +1,18 @@
 ﻿using SimpleInjector;
 using Try4Real.Client.Wpf.Business.Services;
-using Try4Real.EndPoint.Contracts.Services;
+using Try4Real.EndPoint;
 
 namespace Try4Real.Client.Wpf.LocalDataAccess
 {
     public class ServiceRegistry : IServiceRegistry
     {
-        public void RegisterService(Container container)
+        public void RegisterService(Container clientContainer)
         {
-            var serverIoc = EndPoint.Ioc.Instance;
-            serverIoc.Init();
+            var domainEntry = new DomainEntry();
 
-            container.RegisterSingleton(serverIoc.GetInstance<ICustomerService>);
-            container.RegisterSingleton(serverIoc.GetInstance<IOrderService>);
-            container.RegisterSingleton(serverIoc.GetInstance<IProductService>);
+            clientContainer.RegisterSingleton(domainEntry.CustomerService);
+            clientContainer.RegisterSingleton(domainEntry.OrderService);
+            clientContainer.RegisterSingleton(domainEntry.ProductService);
         }
     }
 }

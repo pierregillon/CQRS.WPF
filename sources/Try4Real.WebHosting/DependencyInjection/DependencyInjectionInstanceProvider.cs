@@ -2,9 +2,8 @@
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
-using Try4Real.EndPoint;
 
-namespace Try4Real.WebHosting.DependencyInjection
+namespace Try4Real.EndPoint.WCF.DependencyInjection
 {
     public class DependencyInjectionInstanceProvider : IInstanceProvider
     {
@@ -22,7 +21,7 @@ namespace Try4Real.WebHosting.DependencyInjection
 
         public object GetInstance(InstanceContext instanceContext, Message message)
         {
-            return Ioc.Instance.GetInstance(_serviceType);
+            return Global.CurrentDomainEntry.GetService(_serviceType);
         }
 
         public void ReleaseInstance(InstanceContext instanceContext, object instance) { }
