@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Try4Real.Domain\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Infrastructure", "Try4Real.Domain.Persistence\Domain.Infrastructure.csproj", "{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.WCF", "Try4Real.WebHosting\EndPoint.WCF.csproj", "{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.WCF", "Try4Real.EndPoint.WCF\EndPoint.WCF.csproj", "{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business", "Try4Real.Client.Wpf.Business\2 - Client.Wpf.Business.csproj", "{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}"
 EndProject
