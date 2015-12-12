@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -13,7 +12,7 @@ using Try4Real.Client.Wpf.Business.ViewModels.Users;
 using Try4Real.EndPoint.Contracts;
 using Xunit;
 
-namespace Client.Wpf.Business.Tests
+namespace Try4Real.Client.Wpf.Business.Tests
 {
     public class CustomerListViewModel_should
     {

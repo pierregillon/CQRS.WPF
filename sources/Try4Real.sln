@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Client.Wpf.Presentation
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Wpf.RemoteDataAccess", "Try4Real.Client.Wpf.RemoteDataAccess\Client.Wpf.RemoteDataAccess.csproj", "{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business.Tests", "Client.Wpf.Business.Tests\2 - Client.Wpf.Business.Tests.csproj", "{15173AA0-8783-44D1-999B-552AA04ED18A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business.Tests", "Try4Real.Client.Wpf.Business.Tests\2 - Client.Wpf.Business.Tests.csproj", "{15173AA0-8783-44D1-999B-552AA04ED18A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FCF810B7-7DD4-4AA1-B550-391455F8A051}"
 EndProject
