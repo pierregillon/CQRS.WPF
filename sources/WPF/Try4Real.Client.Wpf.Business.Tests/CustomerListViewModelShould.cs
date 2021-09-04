@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Messaging;
+using Moq;
+using NFluent;
 using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Users;
 using Try4Real.EndPoint.Contracts;
+using Xunit;
 
 namespace Try4Real.Client.Wpf.Business.Tests
 {

@@ -27,13 +27,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.WCF", "EndPoint\Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business", "WPF\Try4Real.Client.Wpf.Business\2 - Client.Wpf.Business.csproj", "{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business.Tests", "WPF\Try4Real.Client.Wpf.Business.Tests\2 - Client.Wpf.Business.Tests.csproj", "{15173AA0-8783-44D1-999B-552AA04ED18A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.Wpf.LocalDataAccess", "WPF\Try4Real.Client.Wpf.LocalDataAccess\3 - Client.Wpf.LocalDataAccess.csproj", "{BA32A190-36E1-4075-8748-155957BA6768}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Client.Wpf.Presentation", "WPF\Try4Real.Client.Wpf.Presentation\1 - Client.Wpf.Presentation.csproj", "{424564C3-201A-4A5C-834F-87B67C4BEF9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.Wpf.RemoteDataAccess", "WPF\Try4Real.Client.Wpf.RemoteDataAccess\3 - Client.Wpf.RemoteDataAccess.csproj", "{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business.Tests2", "WPF\Try4Real.Client.Wpf.Business.Tests\2 - Client.Wpf.Business.Tests2.csproj", "{B0B66C07-80CA-40E0-8BFC-6D0FB1B5948B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,10 +73,6 @@ Global
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA32A190-36E1-4075-8748-155957BA6768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA32A190-36E1-4075-8748-155957BA6768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA32A190-36E1-4075-8748-155957BA6768}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -89,6 +85,10 @@ Global
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B66C07-80CA-40E0-8BFC-6D0FB1B5948B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B66C07-80CA-40E0-8BFC-6D0FB1B5948B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B66C07-80CA-40E0-8BFC-6D0FB1B5948B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B66C07-80CA-40E0-8BFC-6D0FB1B5948B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,10 +102,10 @@ Global
 		{F38ECB65-908A-485C-8F56-B13C067D7D99} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
 		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
-		{15173AA0-8783-44D1-999B-552AA04ED18A} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 		{BA32A190-36E1-4075-8748-155957BA6768} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 		{424564C3-201A-4A5C-834F-87B67C4BEF9D} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
+		{B0B66C07-80CA-40E0-8BFC-6D0FB1B5948B} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8908306-5F49-4D2B-BD50-FB966A94499B}
