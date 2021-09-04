@@ -1,37 +1,39 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF Client", "WPF Client", "{555EB340-BCB0-4EEE-9AF6-3C0721425040}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4233BAD1-0039-4870-BA61-EC115048E263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.Contracts", "Try4Real.EndPoint.Contracts\EndPoint.Contracts.csproj", "{F38ECB65-908A-485C-8F56-B13C067D7D99}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint", "Try4Real.EndPoint\EndPoint.csproj", "{73D9079D-5522-414D-8159-2D04F8D81572}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoint", "Endpoint", "{3ADBA989-7E60-401C-B72F-48BE362AFBFC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Try4Real.Domain\Domain.csproj", "{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Infrastructure", "Try4Real.Domain.Persistence\Domain.Infrastructure.csproj", "{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.WCF", "Try4Real.EndPoint.WCF\EndPoint.WCF.csproj", "{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business", "Try4Real.Client.Wpf.Business\2 - Client.Wpf.Business.csproj", "{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.Wpf.LocalDataAccess", "Try4Real.Client.Wpf.LocalDataAccess\3 - Client.Wpf.LocalDataAccess.csproj", "{BA32A190-36E1-4075-8748-155957BA6768}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Client.Wpf.Presentation", "Try4Real.Client.Wpf.Presentation\1 - Client.Wpf.Presentation.csproj", "{424564C3-201A-4A5C-834F-87B67C4BEF9D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.Wpf.RemoteDataAccess", "Try4Real.Client.Wpf.RemoteDataAccess\3 - Client.Wpf.RemoteDataAccess.csproj", "{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business.Tests", "Try4Real.Client.Wpf.Business.Tests\2 - Client.Wpf.Business.Tests.csproj", "{15173AA0-8783-44D1-999B-552AA04ED18A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FCF810B7-7DD4-4AA1-B550-391455F8A051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Boostrapper", "Try4Real.Domain.Boostrapper\Domain.Boostrapper.csproj", "{2649D72E-3E55-4B5A-8E13-09F8475A75D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Core\Try4Real.Core.Application\Application.csproj", "{362CB0B2-7092-4FBA-BB14-9F9AB667BF95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Bootstrapper", "Core\Try4Real.Core.Boostrapper\_Bootstrapper.csproj", "{2649D72E-3E55-4B5A-8E13-09F8475A75D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Core\Try4Real.Core.Domain\Domain.csproj", "{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Core\Try4Real.Core.Infrastructure\Infrastructure.csproj", "{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint", "EndPoint\Try4Real.EndPoint\EndPoint.csproj", "{73D9079D-5522-414D-8159-2D04F8D81572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.Contracts", "EndPoint\Try4Real.EndPoint.Contracts\EndPoint.Contracts.csproj", "{F38ECB65-908A-485C-8F56-B13C067D7D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.WCF", "EndPoint\Try4Real.EndPoint.WCF\EndPoint.WCF.csproj", "{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business", "WPF\Try4Real.Client.Wpf.Business\2 - Client.Wpf.Business.csproj", "{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 - Client.Wpf.Business.Tests", "WPF\Try4Real.Client.Wpf.Business.Tests\2 - Client.Wpf.Business.Tests.csproj", "{15173AA0-8783-44D1-999B-552AA04ED18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.Wpf.LocalDataAccess", "WPF\Try4Real.Client.Wpf.LocalDataAccess\3 - Client.Wpf.LocalDataAccess.csproj", "{BA32A190-36E1-4075-8748-155957BA6768}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 - Client.Wpf.Presentation", "WPF\Try4Real.Client.Wpf.Presentation\1 - Client.Wpf.Presentation.csproj", "{424564C3-201A-4A5C-834F-87B67C4BEF9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 - Client.Wpf.RemoteDataAccess", "WPF\Try4Real.Client.Wpf.RemoteDataAccess\3 - Client.Wpf.RemoteDataAccess.csproj", "{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +41,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73D9079D-5522-414D-8159-2D04F8D81572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73D9079D-5522-414D-8159-2D04F8D81572}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73D9079D-5522-414D-8159-2D04F8D81572}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73D9079D-5522-414D-8159-2D04F8D81572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362CB0B2-7092-4FBA-BB14-9F9AB667BF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362CB0B2-7092-4FBA-BB14-9F9AB667BF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362CB0B2-7092-4FBA-BB14-9F9AB667BF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362CB0B2-7092-4FBA-BB14-9F9AB667BF95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +57,14 @@ Global
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D9079D-5522-414D-8159-2D04F8D81572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D9079D-5522-414D-8159-2D04F8D81572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D9079D-5522-414D-8159-2D04F8D81572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D9079D-5522-414D-8159-2D04F8D81572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38ECB65-908A-485C-8F56-B13C067D7D99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +73,10 @@ Global
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15173AA0-8783-44D1-999B-552AA04ED18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15173AA0-8783-44D1-999B-552AA04ED18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15173AA0-8783-44D1-999B-552AA04ED18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15173AA0-8783-44D1-999B-552AA04ED18A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA32A190-36E1-4075-8748-155957BA6768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA32A190-36E1-4075-8748-155957BA6768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA32A190-36E1-4075-8748-155957BA6768}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,29 +89,25 @@ Global
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15173AA0-8783-44D1-999B-552AA04ED18A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2649D72E-3E55-4B5A-8E13-09F8475A75D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F38ECB65-908A-485C-8F56-B13C067D7D99} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
-		{73D9079D-5522-414D-8159-2D04F8D81572} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
+		{362CB0B2-7092-4FBA-BB14-9F9AB667BF95} = {4233BAD1-0039-4870-BA61-EC115048E263}
+		{2649D72E-3E55-4B5A-8E13-09F8475A75D4} = {4233BAD1-0039-4870-BA61-EC115048E263}
 		{BE53CF66-C6AC-4F58-85C1-BD7F9AB0DBFF} = {4233BAD1-0039-4870-BA61-EC115048E263}
 		{937B36EF-5B73-4D3B-A5CD-C220ED69D62B} = {4233BAD1-0039-4870-BA61-EC115048E263}
+		{73D9079D-5522-414D-8159-2D04F8D81572} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
+		{F38ECB65-908A-485C-8F56-B13C067D7D99} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
 		{6DB65BB8-22E2-4F9A-9984-C4DED9E6D9E0} = {3ADBA989-7E60-401C-B72F-48BE362AFBFC}
 		{E5DFEA20-58AA-45A6-ACCD-057DBB82103C} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
+		{15173AA0-8783-44D1-999B-552AA04ED18A} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 		{BA32A190-36E1-4075-8748-155957BA6768} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 		{424564C3-201A-4A5C-834F-87B67C4BEF9D} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
 		{BF3CC133-B665-4AB1-BFA6-C7BA5516FE54} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
-		{15173AA0-8783-44D1-999B-552AA04ED18A} = {555EB340-BCB0-4EEE-9AF6-3C0721425040}
-		{2649D72E-3E55-4B5A-8E13-09F8475A75D4} = {4233BAD1-0039-4870-BA61-EC115048E263}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8908306-5F49-4D2B-BD50-FB966A94499B}
 	EndGlobalSection
 EndGlobal
