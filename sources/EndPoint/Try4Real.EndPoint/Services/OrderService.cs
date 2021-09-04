@@ -35,8 +35,7 @@ namespace Try4Real.EndPoint.Services
         public IEnumerable<OrderListItem> GetOrderListItems()
         {
             return _orderListFinder.GetOrderListItems().Select(x =>
-                new OrderListItem
-                {
+                new OrderListItem {
                     OrderId = x.OrderId.Value,
                     CreationDate = x.CreationDate,
                     CustomerFullName = x.CustomerFullName,

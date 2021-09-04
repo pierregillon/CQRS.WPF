@@ -14,35 +14,32 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
 
         public string Title
         {
-            get { return GetNotifiableProperty<string>("Title"); }
-            private set { SetNotifiableProperty("Title", value); }
+            get => GetNotifiableProperty<string>("Title");
+            private set => SetNotifiableProperty("Title", value);
         }
-        public bool CanClose
-        {
-            get { return true; }
-        }
+        public bool CanClose => true;
         public string CustomerFirstName
         {
-            get { return GetNotifiableProperty<string>("CustomerFirstName"); }
-            set { SetNotifiableProperty("CustomerFirstName", value); }
+            get => GetNotifiableProperty<string>("CustomerFirstName");
+            set => SetNotifiableProperty("CustomerFirstName", value);
         }
         public string CustomerLastName
         {
-            get { return GetNotifiableProperty<string>("CustomerLastName"); }
-            set { SetNotifiableProperty("CustomerLastName", value); }
+            get => GetNotifiableProperty<string>("CustomerLastName");
+            set => SetNotifiableProperty("CustomerLastName", value);
         }
         public DateTime CustomerBirthDate
         {
-            get { return GetNotifiableProperty<DateTime>("CustomerBirthDate"); }
-            set { SetNotifiableProperty("CustomerBirthDate", value); }
+            get => GetNotifiableProperty<DateTime>("CustomerBirthDate");
+            set => SetNotifiableProperty("CustomerBirthDate", value);
         }
         public string CustomerEmail
         {
-            get { return GetNotifiableProperty<string>("CustomerEmail"); }
-            set { SetNotifiableProperty("CustomerEmail", value); }
+            get => GetNotifiableProperty<string>("CustomerEmail");
+            set => SetNotifiableProperty("CustomerEmail", value);
         }
 
-        public IAsyncCommand SaveCommand { get; private set; }
+        public IAsyncCommand SaveCommand { get; }
 
         public CustomerDetailViewModel(ICustomerDetailService customerDetailService)
         {
@@ -63,10 +60,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             CustomerBirthDate = customerDetails.BirthDate;
             CustomerEmail = customerDetails.Email;
         }
+
         private async Task Save()
         {
-            await Async(() => _customerDetailService.UpdateDetails(new CustomerDetails
-            {
+            await Async(() => _customerDetailService.UpdateDetails(new CustomerDetails {
                 Id = _id,
                 FirstName = CustomerFirstName,
                 LastName = CustomerLastName,

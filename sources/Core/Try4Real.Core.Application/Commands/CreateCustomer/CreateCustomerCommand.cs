@@ -1,5 +1,5 @@
 ﻿using System;
-using Try4Realse.Core.Application.Commands.Base;
+using Try4Realse.Core.Application.Commands._Base;
 
 namespace Try4Realse.Core.Application.Commands.CreateCustomer
 {

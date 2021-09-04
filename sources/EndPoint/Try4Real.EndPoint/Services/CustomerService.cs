@@ -28,8 +28,7 @@ namespace Try4Real.EndPoint.Services
         {
             return _customerFinder
                 .GetCustomerListItems()
-                .Select(x => new CustomerListItem
-                {
+                .Select(x => new CustomerListItem {
                     Id = x.Id,
                     FullName = x.FullName,
                     YearOld = x.YearOld,
@@ -37,11 +36,11 @@ namespace Try4Real.EndPoint.Services
                 })
                 .ToArray();
         }
+
         public CustomerDetails GetCustomerDetails(Guid customerId)
         {
             var details = _customerFinder.GetDetails(CustomerId.From(customerId));
-            return new CustomerDetails
-            {
+            return new CustomerDetails {
                 Id = details.Id,
                 FirstName = details.FirstName,
                 LastName = details.LastName,
@@ -49,14 +48,17 @@ namespace Try4Real.EndPoint.Services
                 Email = details.Email,
             };
         }
+
         public void UpdateCustomerDetails(CustomerDetails customerDetails)
         {
             _commandDispatcher.Dispatch(new UpdateCustomerCommand(CustomerId.From(customerDetails.Id), customerDetails.FirstName, customerDetails.LastName, customerDetails.BirthDate, customerDetails.Email));
         }
+
         public void DeleteCustomer(Guid id)
         {
             _commandDispatcher.Dispatch(new DeleteCustomerCommand(CustomerId.From(id)));
         }
+
         public void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email)
         {
             _commandDispatcher.Dispatch(new CreateCustomerCommand(firstName, lastName, birthDate, email));

@@ -9,20 +9,11 @@ namespace Try4Real.EndPoint.WCF.DependencyInjection
     {
         private readonly Type _serviceType;
 
-        public DependencyInjectionInstanceProvider(Type serviceType)
-        {
-            _serviceType = serviceType;
-        }
+        public DependencyInjectionInstanceProvider(Type serviceType) => _serviceType = serviceType;
 
-        public object GetInstance(InstanceContext instanceContext)
-        {
-            return GetInstance(instanceContext, null);
-        }
+        public object GetInstance(InstanceContext instanceContext) => GetInstance(instanceContext, null);
 
-        public object GetInstance(InstanceContext instanceContext, Message message)
-        {
-            return Global.CurrentDomainGate.GetService(_serviceType);
-        }
+        public object GetInstance(InstanceContext instanceContext, Message message) => Global.CurrentDomainGate.GetService(_serviceType);
 
         public void ReleaseInstance(InstanceContext instanceContext, object instance) { }
     }

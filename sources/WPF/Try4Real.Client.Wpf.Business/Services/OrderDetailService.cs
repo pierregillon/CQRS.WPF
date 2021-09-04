@@ -9,15 +9,11 @@ namespace Try4Real.Client.Wpf.Business.Services
     {
         private readonly IOrderService _orderService;
 
-        public OrderDetailService(IOrderService orderService)
-        {
-            _orderService = orderService;
-        }
+        public OrderDetailService(IOrderService orderService) => _orderService = orderService;
 
         public void CreateOrder(Guid customerId, IEnumerable<OrderItem> orderItems)
         {
-            _orderService.CreateOrder(new CreateOrderRequest
-            {
+            _orderService.CreateOrder(new CreateOrderRequest {
                 CustomerId = customerId,
                 OrderItems = orderItems
             });

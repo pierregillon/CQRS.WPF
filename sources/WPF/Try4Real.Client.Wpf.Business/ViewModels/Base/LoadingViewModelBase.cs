@@ -7,8 +7,8 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
     {
         public bool IsLoading
         {
-            get { return GetNotifiableProperty<bool>("IsLoading"); }
-            protected set { SetNotifiableProperty("IsLoading", value); }
+            get => GetNotifiableProperty<bool>("IsLoading");
+            protected set => SetNotifiableProperty("IsLoading", value);
         }
 
         protected async Task<T> Async<T>(Func<T> task)
@@ -21,15 +21,14 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
                 IsLoading = false;
             }
         }
+
         protected async Task Async(Action action)
         {
-            try
-            {
+            try {
                 IsLoading = true;
                 await Task.Run(action);
             }
-            finally
-            {
+            finally {
                 IsLoading = false;
             }
         }

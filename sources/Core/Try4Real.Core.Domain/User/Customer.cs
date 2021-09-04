@@ -4,16 +4,14 @@ namespace Try4Real.Domain.User
 {
     public class Customer
     {
-        public CustomerId CustomerId { get; private set; }
+        public CustomerId CustomerId { get; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public DateTime BirthDate { get; set; }
         public string Email { get; private set; }
 
-        public Customer()
-        {
-            CustomerId = CustomerId.New();
-        }
+        public Customer() => CustomerId = CustomerId.New();
+
         public Customer(string firstName, string lastName, DateTime birthDate) : this()
         {
             FirstName = firstName;
@@ -25,6 +23,7 @@ namespace Try4Real.Domain.User
         {
             Email = email;
         }
+
         public void Rename(string firstName, string lastName)
         {
             FirstName = firstName;

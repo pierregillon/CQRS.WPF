@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Try4Real.Client.Wpf.Business.Dialog;
 
 namespace Try4Real.Client.Wpf.Presentation.Dialog

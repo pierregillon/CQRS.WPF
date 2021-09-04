@@ -10,21 +10,17 @@ namespace Try4Real.Domain.Infrastructure.Finders
     {
         private readonly IDatabase _database;
 
-        public CustomerListFinder(IDatabase database)
-        {
-            _database = database;
-        }
+        public CustomerListFinder(IDatabase database) => _database = database;
 
         public IEnumerable<CustomerListItemDto> GetCustomerListItems()
         {
             var query = from customer in _database.Set<Customer>()
-                        select new CustomerListItemDto
-                        {
-                            Id = customer.CustomerId.Value,
-                            FullName = customer.FirstName + " " + customer.LastName,
-                            YearOld = (int)DateTime.Now.Subtract(customer.BirthDate).TotalDays / 365,
-                            Email = customer.Email
-                        };
+                select new CustomerListItemDto {
+                    Id = customer.CustomerId.Value,
+                    FullName = customer.FirstName + " " + customer.LastName,
+                    YearOld = (int) DateTime.Now.Subtract(customer.BirthDate).TotalDays / 365,
+                    Email = customer.Email
+                };
 
             return query.ToList();
         }
@@ -32,15 +28,14 @@ namespace Try4Real.Domain.Infrastructure.Finders
         public CustomerDetails GetDetails(CustomerId customerId)
         {
             var query = from customer in _database.Set<Customer>()
-                        where customer.CustomerId == customerId
-                        select new CustomerDetails
-                        {
-                            Id = customer.CustomerId.Value,
-                            FirstName = customer.FirstName,
-                            LastName = customer.LastName,
-                            BirthDate = customer.BirthDate,
-                            Email = customer.Email,
-                        };
+                where customer.CustomerId == customerId
+                select new CustomerDetails {
+                    Id = customer.CustomerId.Value,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    BirthDate = customer.BirthDate,
+                    Email = customer.Email,
+                };
 
             return query.FirstOrDefault();
         }

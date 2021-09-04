@@ -15,7 +15,7 @@ namespace Try4Real.Client.Wpf.Presentation
 #else
             Ioc.Instance.Init(new RemoteDataAccess.ServiceRegistry(), new DialogService());
 #endif
-            await ((ViewModelLocator)Current.Resources["Locator"]).MainViewModel.Boot();
+            await ((ViewModelLocator) Current.Resources["Locator"]).MainViewModel.Boot();
         }
     }
 }

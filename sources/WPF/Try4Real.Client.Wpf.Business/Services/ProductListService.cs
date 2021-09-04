@@ -8,15 +8,9 @@ namespace Try4Real.Client.Wpf.Business.Services
     {
         private readonly IProductService _productService;
 
-        public ProductListService(IProductService productService)
-        {
-            _productService = productService;
-        }
+        public ProductListService(IProductService productService) => _productService = productService;
 
 
-        public IEnumerable<ProductListItem> GetProducts()
-        {
-            return _productService.GetProducts();
-        }
+        public IEnumerable<ProductListItem> GetProducts() => _productService.GetProducts();
     }
 }

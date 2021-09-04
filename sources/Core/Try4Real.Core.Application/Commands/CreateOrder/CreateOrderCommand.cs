@@ -5,12 +5,9 @@ namespace Try4Realse.Core.Application.Commands.CreateOrder
 {
     public class CreateOrderCommand
     {
-        public CustomerId CustomerId { get; private set; }
+        public CustomerId CustomerId { get; }
         public OrderId OrderIdCreated { get; set; }
 
-        public CreateOrderCommand(CustomerId customerId)
-        {
-            CustomerId = customerId;
-        }
+        public CreateOrderCommand(CustomerId customerId) => CustomerId = customerId;
     }
 }

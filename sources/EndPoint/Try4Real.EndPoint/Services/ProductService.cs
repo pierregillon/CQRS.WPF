@@ -10,15 +10,11 @@ namespace Try4Real.EndPoint.Services
     {
         private readonly IProductFinder _productFinder;
 
-        public ProductService(IProductFinder productFinder)
-        {
-            _productFinder = productFinder;
-        }
+        public ProductService(IProductFinder productFinder) => _productFinder = productFinder;
 
         public IEnumerable<ProductListItem> GetProducts()
         {
-            return _productFinder.GetProducts().Select(x => new ProductListItem
-            {
+            return _productFinder.GetProducts().Select(x => new ProductListItem {
                 Id = x.Id.Value,
                 Name = x.Name
             }).ToArray();

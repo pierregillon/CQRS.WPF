@@ -1,5 +1,5 @@
 using Try4Real.Domain.Order;
-using Try4Realse.Core.Application.Commands.Base;
+using Try4Realse.Core.Application.Commands._Base;
 
 namespace Try4Realse.Core.Application.Commands.AddItemToOrder
 {
@@ -7,10 +7,7 @@ namespace Try4Realse.Core.Application.Commands.AddItemToOrder
     {
         private readonly IOrderRepository _orderRepository;
 
-        public AddItemToOrderCommandHandler(IOrderRepository orderRepository)
-        {
-            _orderRepository = orderRepository;
-        }
+        public AddItemToOrderCommandHandler(IOrderRepository orderRepository) => _orderRepository = orderRepository;
 
         public void Handle(AddItemToOrderCommand command)
         {

@@ -10,7 +10,7 @@ namespace Try4Real.EndPoint.WCF.DependencyInjection
 
         protected override void OnOpening()
         {
-            this.Description.Behaviors.Add(new DependencyInjectionServiceBehavior());
+            Description.Behaviors.Add(new DependencyInjectionServiceBehavior());
             base.OnOpening();
         }
     }

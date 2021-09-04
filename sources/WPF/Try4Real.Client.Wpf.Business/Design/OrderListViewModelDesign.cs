@@ -8,13 +8,10 @@ namespace Try4Real.Client.Wpf.Business.Design
     {
         public List<OrderListItem> Orders { get; set; }
 
-        public OrderListViewModelDesign()
-        {
-            Orders = new List<OrderListItem>
-            {
-                new OrderListItem{CreationDate = DateTime.Now, CustomerFullName = "TEST test", OrderItemCount = 3, TotalAmount = 44},
-                new OrderListItem{CreationDate = DateTime.Now, CustomerFullName = "MARTIN jean", OrderItemCount = 5, TotalAmount = 12},
+        public OrderListViewModelDesign() =>
+            Orders = new List<OrderListItem> {
+                new OrderListItem { CreationDate = DateTime.Now, CustomerFullName = "TEST test", OrderItemCount = 3, TotalAmount = 44 },
+                new OrderListItem { CreationDate = DateTime.Now, CustomerFullName = "MARTIN jean", OrderItemCount = 5, TotalAmount = 12 },
             };
-        }
     }
 }

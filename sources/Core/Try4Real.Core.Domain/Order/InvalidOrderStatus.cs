@@ -4,9 +4,6 @@ namespace Try4Real.Domain.Order
 {
     public class InvalidOrderStatus : Exception
     {
-        public InvalidOrderStatus(string message) : base(message)
-        {
-            
-        }
+        public InvalidOrderStatus(string message) : base(message) { }
     }
 }

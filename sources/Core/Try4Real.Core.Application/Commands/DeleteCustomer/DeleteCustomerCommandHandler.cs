@@ -1,5 +1,5 @@
 ﻿using Try4Real.Domain.User;
-using Try4Realse.Core.Application.Commands.Base;
+using Try4Realse.Core.Application.Commands._Base;
 
 namespace Try4Realse.Core.Application.Commands.DeleteCustomer
 {
@@ -7,10 +7,7 @@ namespace Try4Realse.Core.Application.Commands.DeleteCustomer
     {
         private readonly ICustomerRepository _customerRepository;
 
-        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
-        {
-            _customerRepository = customerRepository;
-        }
+        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository) => _customerRepository = customerRepository;
 
         public void Handle(DeleteCustomerCommand command)
         {

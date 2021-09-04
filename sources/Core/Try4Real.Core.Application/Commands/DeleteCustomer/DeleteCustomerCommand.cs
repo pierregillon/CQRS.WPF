@@ -4,11 +4,8 @@ namespace Try4Realse.Core.Application.Commands.DeleteCustomer
 {
     public class DeleteCustomerCommand
     {
-        public CustomerId Id { get; private set; }
+        public CustomerId Id { get; }
 
-        public DeleteCustomerCommand(CustomerId id)
-        {
-            Id = id;
-        }
+        public DeleteCustomerCommand(CustomerId id) => Id = id;
     }
 }

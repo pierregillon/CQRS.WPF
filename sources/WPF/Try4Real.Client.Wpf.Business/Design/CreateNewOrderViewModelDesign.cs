@@ -14,22 +14,19 @@ namespace Try4Real.Client.Wpf.Business.Design
 
         public CreateNewOrderViewModelDesign()
         {
-            Customers = new List<CustomerListItem>
-            {
-                new CustomerListItem {FullName = "TEST test"}
+            Customers = new List<CustomerListItem> {
+                new CustomerListItem { FullName = "TEST test" }
             };
             SelectedCustomer = Customers.Single();
 
-            Products = new List<ProductListItem>
-            {
-                new ProductListItem {Name = "Jacket"},
-                new ProductListItem {Name = "Book"},
+            Products = new List<ProductListItem> {
+                new ProductListItem { Name = "Jacket" },
+                new ProductListItem { Name = "Book" },
             };
 
-            OrderItems = new List<OrderItemViewModel>
-            {
-                new OrderItemViewModel {Product = Products.First(), Amount = 1},
-                new OrderItemViewModel {Product = Products.Last(), Amount = 5}
+            OrderItems = new List<OrderItemViewModel> {
+                new OrderItemViewModel { Product = Products.First(), Amount = 1 },
+                new OrderItemViewModel { Product = Products.Last(), Amount = 5 }
             };
         }
     }

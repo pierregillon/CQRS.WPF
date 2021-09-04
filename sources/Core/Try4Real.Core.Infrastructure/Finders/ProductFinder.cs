@@ -9,19 +9,15 @@ namespace Try4Real.Domain.Infrastructure.Finders
     {
         private readonly IDatabase _database;
 
-        public ProductFinder(IDatabase database)
-        {
-            _database = database;
-        }
+        public ProductFinder(IDatabase database) => _database = database;
 
         public IEnumerable<ProductListItem> GetProducts()
         {
             var query = from product in _database.Set<Product>()
-                        select new ProductListItem
-                        {
-                            Id = product.Id,
-                            Name = product.Name
-                        };
+                select new ProductListItem {
+                    Id = product.Id,
+                    Name = product.Name
+                };
             return query.ToArray();
         }
     }

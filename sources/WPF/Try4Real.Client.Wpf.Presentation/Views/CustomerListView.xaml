@@ -16,7 +16,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Width="200" Height="35" Command="{Binding Path=CreateCustomerCommand}" Content="Create random customer" />
+                <Button Width="200" Height="35" Command="{Binding Path=CreateCustomerCommand}"
+                        Content="Create random customer" />
                 <Button Width="100" Height="35" Command="{Binding Path=RefreshCommand}" Content="Refresh" />
             </StackPanel>
             <DataGrid Grid.Row="1"
@@ -24,41 +25,40 @@
                       SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Customer name" Binding="{Binding Path=FullName}" Width="*"/>
-                    <DataGridTextColumn Header="Year old" Binding="{Binding Path=YearOld}"/>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}"/>
+                    <DataGridTextColumn Header="Customer name" Binding="{Binding Path=FullName}" Width="*" />
+                    <DataGridTextColumn Header="Year old" Binding="{Binding Path=YearOld}" />
+                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}" />
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Content="Show" Width="80"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DisplayCustomerDetailsCommand}"
-                                        CommandParameter="{Binding Path=.}" />
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DisplayCustomerDetailsCommand}"
+                                            CommandParameter="{Binding Path=.}" />
                                     <Button Content="Delete" Width="80"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteCustomerCommand}"
-                                        CommandParameter="{Binding Path=.}" />
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteCustomerCommand}"
+                                            CommandParameter="{Binding Path=.}" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-
-                            </DataTemplate>
+                            <DataTemplate />
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="PreviewMouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding Path=DisplayCustomerDetailsCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding Path=DisplayCustomerDetailsCommand}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
 
             <dialog:DialogContainer Grid.Row="0">
                 <dialog:DialogContainer.Dialogs>
-                    <dialog:DialogViewModelContainer ViewModel="{Binding Source={StaticResource Locator}, Path=CreateNewOrderViewModel}">
+                    <dialog:DialogViewModelContainer
+                        ViewModel="{Binding Source={StaticResource Locator}, Path=CreateNewOrderViewModel}">
                         <dialog:DialogViewModelContainer.ViewFactory>
                             <dialog:WindowFactory />
                         </dialog:DialogViewModelContainer.ViewFactory>

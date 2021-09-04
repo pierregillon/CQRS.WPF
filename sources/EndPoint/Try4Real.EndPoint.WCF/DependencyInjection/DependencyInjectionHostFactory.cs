@@ -6,9 +6,6 @@ namespace Try4Real.EndPoint.WCF.DependencyInjection
 {
     public class DependencyInjectionHostFactory : ServiceHostFactory
     {
-        protected override ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses)
-        {
-            return new DependencyInjectionServiceHost(serviceType, baseAddresses);
-        }
+        protected override ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses) => new DependencyInjectionServiceHost(serviceType, baseAddresses);
     }
 }

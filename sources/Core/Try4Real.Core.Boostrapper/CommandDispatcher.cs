@@ -1,6 +1,6 @@
 using System.Linq;
 using SimpleInjector;
-using Try4Realse.Core.Application.Commands.Base;
+using Try4Realse.Core.Application.Commands._Base;
 
 namespace Try4Real.Domain.Boostrapper
 {
@@ -8,10 +8,7 @@ namespace Try4Real.Domain.Boostrapper
     {
         private readonly Container _container;
 
-        public CommandDispatcher(Container container)
-        {
-            _container = container;
-        }
+        public CommandDispatcher(Container container) => _container = container;
 
         public void Dispatch<T>(T command)
         {

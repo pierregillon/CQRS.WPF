@@ -8,7 +8,7 @@ namespace Try4Real.EndPoint.Contracts.Services
     {
         [OperationContract]
         void CreateOrder(CreateOrderRequest request);
-        
+
         [OperationContract]
         IEnumerable<OrderListItem> GetOrderListItems();
     }

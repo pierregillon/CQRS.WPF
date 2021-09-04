@@ -23,10 +23,10 @@
                       SelectedItem="{Binding Path=SelectedOrder, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Creation date" Binding="{Binding Path=CreationDate}"/>
+                    <DataGridTextColumn Header="Creation date" Binding="{Binding Path=CreationDate}" />
                     <DataGridTextColumn Header="Customer name" Binding="{Binding Path=CustomerFullName}" Width="*" />
                     <DataGridTextColumn Header="Order item count" Binding="{Binding Path=OrderItemCount}" />
-                    <DataGridTextColumn Header="Total cost"  Binding="{Binding Path=TotalAmount}" />
+                    <DataGridTextColumn Header="Total cost" Binding="{Binding Path=TotalAmount}" />
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -39,7 +39,7 @@
                 </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="PreviewMouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding Path=OpenOrderDetailCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding Path=OpenOrderDetailCommand}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>

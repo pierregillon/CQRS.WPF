@@ -8,6 +8,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
         private readonly Dictionary<string, object> _propertyNameToValue = new Dictionary<string, object>();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             var handler = PropertyChanged;
@@ -21,6 +22,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             }
             return default(T);
         }
+
         protected void SetNotifiableProperty<T>(string propertyName, T value)
         {
             if (_propertyNameToValue.ContainsKey(propertyName) == false) {

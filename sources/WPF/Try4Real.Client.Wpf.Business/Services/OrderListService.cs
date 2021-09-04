@@ -8,14 +8,8 @@ namespace Try4Real.Client.Wpf.Business.Services
     {
         private readonly IOrderService _orderService;
 
-        public OrderListService(IOrderService orderService)
-        {
-            _orderService = orderService;
-        }
+        public OrderListService(IOrderService orderService) => _orderService = orderService;
 
-        public IEnumerable<OrderListItem> GetOrders()
-        {
-            return _orderService.GetOrderListItems();
-        }
+        public IEnumerable<OrderListItem> GetOrders() => _orderService.GetOrderListItems();
     }
 }

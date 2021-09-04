@@ -10,18 +10,9 @@ namespace Try4Real.EndPoint
     {
         private readonly Container _container;
 
-        public ICustomerService CustomerService
-        {
-            get { return _container.GetInstance<ICustomerService>(); }
-        }
-        public IOrderService OrderService
-        {
-            get { return _container.GetInstance<IOrderService>(); }
-        }
-        public IProductService ProductService
-        {
-            get { return _container.GetInstance<IProductService>(); }
-        }
+        public ICustomerService CustomerService => _container.GetInstance<ICustomerService>();
+        public IOrderService OrderService => _container.GetInstance<IOrderService>();
+        public IProductService ProductService => _container.GetInstance<IProductService>();
 
         public DomainGate()
         {
@@ -35,10 +26,7 @@ namespace Try4Real.EndPoint
             _container.Register<IOrderService, OrderService>();
             _container.Register<IProductService, ProductService>();
         }
-        
-        public object GetService(Type serviceType)
-        {
-            return _container.GetInstance(serviceType);
-        }
+
+        public object GetService(Type serviceType) => _container.GetInstance(serviceType);
     }
 }

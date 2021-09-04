@@ -4,7 +4,7 @@ using Try4Real.Domain.Infrastructure.Finders;
 using Try4Real.Domain.Infrastructure.Repositories;
 using Try4Real.Domain.Order;
 using Try4Real.Domain.User;
-using Try4Realse.Core.Application.Commands.Base;
+using Try4Realse.Core.Application.Commands._Base;
 using Try4Realse.Core.Application.Queries;
 
 namespace Try4Real.Domain.Boostrapper

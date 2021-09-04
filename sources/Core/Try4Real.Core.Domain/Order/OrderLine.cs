@@ -4,7 +4,7 @@ namespace Try4Real.Domain.Order
 {
     public class OrderLine
     {
-        public ProductId ProductId { get; private set; }
+        public ProductId ProductId { get; }
         public int Quantity { get; private set; }
 
         public OrderLine(int quantity, ProductId productId)
@@ -12,6 +12,7 @@ namespace Try4Real.Domain.Order
             Quantity = quantity;
             ProductId = productId;
         }
+
         public void AddQuantity(int quantity)
         {
             Quantity += quantity;

@@ -1,13 +1,12 @@
 using System;
-using Try4Real.Client.Wpf.Business.ViewModels;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 
 namespace Try4Real.Client.Wpf.Presentation.Dialog
 {
     public class ViewModelChangedEventArgs : EventArgs
     {
-        public IViewModelDialog OldViewModel { get; private set; }
-        public IViewModelDialog NewViewModel { get; private set; }
+        public IViewModelDialog OldViewModel { get; }
+        public IViewModelDialog NewViewModel { get; }
 
         public ViewModelChangedEventArgs(IViewModelDialog oldViewModel, IViewModelDialog newViewModel)
         {

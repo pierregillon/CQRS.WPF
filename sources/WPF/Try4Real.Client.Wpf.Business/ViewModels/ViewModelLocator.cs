@@ -6,25 +6,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels
 {
     public class ViewModelLocator
     {
-        public CustomerListViewModel CustomerListViewModel
-        {
-            get { return Ioc.Instance.GetInstance<CustomerListViewModel>(); }
-        }
-        public MainViewModel MainViewModel
-        {
-            get { return Ioc.Instance.GetInstance<MainViewModel>(); }
-        }
-        public CustomerDetailViewModel CustomerDetailViewModel
-        {
-            get { return Ioc.Instance.GetInstance<CustomerDetailViewModel>(); }
-        }
-        public OrderListViewModel OrderListViewModel
-        {
-            get { return Ioc.Instance.GetInstance<OrderListViewModel>(); }
-        }
-        public CreateNewOrderViewModel CreateNewOrderViewModel
-        {
-            get { return Ioc.Instance.GetInstance<CreateNewOrderViewModel>(); }
-        }
+        public CustomerListViewModel CustomerListViewModel => Ioc.Instance.GetInstance<CustomerListViewModel>();
+        public MainViewModel MainViewModel => Ioc.Instance.GetInstance<MainViewModel>();
+        public CustomerDetailViewModel CustomerDetailViewModel => Ioc.Instance.GetInstance<CustomerDetailViewModel>();
+        public OrderListViewModel OrderListViewModel => Ioc.Instance.GetInstance<OrderListViewModel>();
+        public CreateNewOrderViewModel CreateNewOrderViewModel => Ioc.Instance.GetInstance<CreateNewOrderViewModel>();
     }
 }

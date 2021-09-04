@@ -4,12 +4,9 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
 {
     public class DisplayCustomerDetailsMessage
     {
-        public Guid CustomerId { get; private set; }
+        public Guid CustomerId { get; }
 
-        public DisplayCustomerDetailsMessage(Guid customerId)
-        {
-            CustomerId = customerId;
-        }
+        public DisplayCustomerDetailsMessage(Guid customerId) => CustomerId = customerId;
 
         public override bool Equals(object obj)
         {

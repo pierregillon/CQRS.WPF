@@ -2,19 +2,10 @@
 {
     public class DesignTimeViewModelLocator
     {
-        public CreateNewOrderViewModelDesign CreateNewOrderViewModel
-        {
-            get { return new CreateNewOrderViewModelDesign(); }
-        }
+        public CreateNewOrderViewModelDesign CreateNewOrderViewModel => new CreateNewOrderViewModelDesign();
 
-        public CustomerListViewModelDesign CustomerListViewModel
-        {
-            get { return new CustomerListViewModelDesign(); }
-        }
+        public CustomerListViewModelDesign CustomerListViewModel => new CustomerListViewModelDesign();
 
-        public OrderListViewModelDesign OrderListViewModel
-        {
-            get { return new OrderListViewModelDesign(); }
-        }
+        public OrderListViewModelDesign OrderListViewModel => new OrderListViewModelDesign();
     }
 }

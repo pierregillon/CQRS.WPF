@@ -1,4 +1,4 @@
-namespace Try4Realse.Core.Application.Commands.Base
+namespace Try4Realse.Core.Application.Commands._Base
 {
     public interface ICommandHandler<in T>
     {

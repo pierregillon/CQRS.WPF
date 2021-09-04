@@ -9,20 +9,15 @@ namespace Try4Real.Client.Wpf.Business.Services
     {
         private readonly ICustomerService _customerService;
 
-        public CustomerListService(ICustomerService customerService)
-        {
-            _customerService = customerService;
-        }
+        public CustomerListService(ICustomerService customerService) => _customerService = customerService;
 
-        public IEnumerable<CustomerListItem> GetCustomers()
-        {
-            return _customerService.GetCustomerListItems();
-        }
+        public IEnumerable<CustomerListItem> GetCustomers() => _customerService.GetCustomerListItems();
 
         public void CreateCustomer(string firstName, string lastName, DateTime birthDate, string email)
         {
             _customerService.CreateCustomer(firstName, lastName, birthDate, email);
         }
+
         public void DeleteCustomer(Guid id)
         {
             _customerService.DeleteCustomer(id);

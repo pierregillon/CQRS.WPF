@@ -15,19 +15,19 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Main
 
         public ObservableCollection<IViewModelTab> Tabs
         {
-            get { return GetNotifiableProperty<ObservableCollection<IViewModelTab>>("Tabs"); }
-            private set { SetNotifiableProperty("Tabs", value); }
+            get => GetNotifiableProperty<ObservableCollection<IViewModelTab>>("Tabs");
+            private set => SetNotifiableProperty("Tabs", value);
         }
         public IViewModelTab SelectedTab
         {
-            get { return GetNotifiableProperty<IViewModelTab>("SelectedTab"); }
-            set { SetNotifiableProperty("SelectedTab", value); }
+            get => GetNotifiableProperty<IViewModelTab>("SelectedTab");
+            set => SetNotifiableProperty("SelectedTab", value);
         }
-        public ICommand<IViewModelTab> CloseTabCommand { get; private set; }
+        public ICommand<IViewModelTab> CloseTabCommand { get; }
 
         public MainViewModel(
-            IMessenger messenger, 
-            IViewModelFactory<CustomerListViewModel> customerListViewModelFactory, 
+            IMessenger messenger,
+            IViewModelFactory<CustomerListViewModel> customerListViewModelFactory,
             IViewModelFactory<CustomerDetailViewModel> customerDetailViewModelFactory,
             IViewModelFactory<OrderListViewModel> orderListViewModelFactory)
         {

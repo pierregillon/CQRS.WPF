@@ -5,7 +5,7 @@
              xmlns:design="clr-namespace:Try4Real.Client.Wpf.Business.Design;assembly=Try4Real.Client.Wpf.Business"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <viewModels:ViewModelLocator x:Key="Locator"/>
-        <design:DesignTimeViewModelLocator x:Key="DesignTimeLocator"/>
+        <viewModels:ViewModelLocator x:Key="Locator" />
+        <design:DesignTimeViewModelLocator x:Key="DesignTimeLocator" />
     </Application.Resources>
 </Application>

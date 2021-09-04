@@ -8,9 +8,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
         private readonly Func<bool> _canExecute;
 
         public event EventHandler CanExecuteChanged;
+
         public virtual void RaiseCanExecuteChanged()
         {
-            EventHandler handler = CanExecuteChanged;
+            var handler = CanExecuteChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
@@ -27,14 +28,14 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             }
             return _canExecute();
         }
+
         public void Execute()
         {
             _execute();
         }
-        bool System.Windows.Input.ICommand.CanExecute(object parameter)
-        {
-            return CanExecute();
-        }
+
+        bool System.Windows.Input.ICommand.CanExecute(object parameter) => CanExecute();
+
         void System.Windows.Input.ICommand.Execute(object parameter)
         {
             Execute();
@@ -47,9 +48,10 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
         private readonly Func<T, bool> _canExecute;
 
         public event EventHandler CanExecuteChanged;
+
         public virtual void RaiseCanExecuteChanged()
         {
-            EventHandler handler = CanExecuteChanged;
+            var handler = CanExecuteChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
@@ -66,14 +68,14 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Base
             }
             return _canExecute(parameter);
         }
+
         public void Execute(T parameter)
         {
             _execute(parameter);
         }
-        bool System.Windows.Input.ICommand.CanExecute(object parameter)
-        {
-            return CanExecute((T) parameter);
-        }
+
+        bool System.Windows.Input.ICommand.CanExecute(object parameter) => CanExecute((T) parameter);
+
         void System.Windows.Input.ICommand.Execute(object parameter)
         {
             Execute((T) parameter);

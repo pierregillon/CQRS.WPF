@@ -8,15 +8,15 @@ namespace Try4Real.Domain.Order
 {
     public class Order
     {
-        private readonly IList<OrderLine> _lines = new List<OrderLine>() ;
+        private readonly IList<OrderLine> _lines = new List<OrderLine>();
 
-        public OrderId Id { get; private set; }
+        public OrderId Id { get; }
         public OrderStatus Status { get; private set; }
         public DateTime? PendingStartDate { get; private set; }
         public DateTime? PendingEndDate { get; private set; }
-        public CustomerId CustomerId { get; private set; }
-        public DateTime CreationDate { get; private set; }
-        public int ItemCount { get { return _lines.Count; } }
+        public CustomerId CustomerId { get; }
+        public DateTime CreationDate { get; }
+        public int ItemCount => _lines.Count;
 
         public Order(CustomerId customerId)
         {
@@ -29,6 +29,7 @@ namespace Try4Real.Domain.Order
         {
             Status = OrderStatus.Open;
         }
+
         public void Place()
         {
             if (Status != OrderStatus.Open) {
@@ -37,6 +38,7 @@ namespace Try4Real.Domain.Order
             Status = OrderStatus.Pending;
             PendingStartDate = DateTime.Now;
         }
+
         public void Cancel()
         {
             if (Status != OrderStatus.Pending) {
@@ -45,6 +47,7 @@ namespace Try4Real.Domain.Order
             Status = OrderStatus.Cancelled;
             PendingEndDate = DateTime.Now;
         }
+
         public void Validate()
         {
             if (Status != OrderStatus.Pending) {
@@ -53,6 +56,7 @@ namespace Try4Real.Domain.Order
             Status = OrderStatus.Validated;
             PendingEndDate = DateTime.Now;
         }
+
         public void AddItem(ProductId productId, int quantity)
         {
             if (Status != OrderStatus.Open) {

@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Mvvm.Async;
 using Try4Real.Client.Wpf.Business.Services;
@@ -19,35 +18,35 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
 
         public bool IsVisible
         {
-            get { return GetNotifiableProperty<bool>("IsVisible"); }
-            set { SetNotifiableProperty("IsVisible", value); }
+            get => GetNotifiableProperty<bool>("IsVisible");
+            set => SetNotifiableProperty("IsVisible", value);
         }
         public IEnumerable<CustomerListItem> Customers
         {
-            get { return GetNotifiableProperty<IEnumerable<CustomerListItem>>("Customers"); }
-            private set { SetNotifiableProperty("Customers", value); }
+            get => GetNotifiableProperty<IEnumerable<CustomerListItem>>("Customers");
+            private set => SetNotifiableProperty("Customers", value);
         }
         public CustomerListItem SelectedCustomer
         {
-            get { return GetNotifiableProperty<CustomerListItem>("SelectedCustomer"); }
-            set { SetNotifiableProperty("SelectedCustomer", value); }
+            get => GetNotifiableProperty<CustomerListItem>("SelectedCustomer");
+            set => SetNotifiableProperty("SelectedCustomer", value);
         }
         public ObservableCollection<OrderItemViewModel> OrderItems
         {
-            get { return GetNotifiableProperty<ObservableCollection<OrderItemViewModel>>("OrderItems"); }
-            private set { SetNotifiableProperty("OrderItems", value); }
+            get => GetNotifiableProperty<ObservableCollection<OrderItemViewModel>>("OrderItems");
+            private set => SetNotifiableProperty("OrderItems", value);
         }
         public IEnumerable<ProductListItem> Products
         {
-            get { return GetNotifiableProperty<IEnumerable<ProductListItem>>("Products"); }
-            set { SetNotifiableProperty("Products", value); }
+            get => GetNotifiableProperty<IEnumerable<ProductListItem>>("Products");
+            set => SetNotifiableProperty("Products", value);
         }
-        public ICommand CreateNewOrderItemCommand { get; private set; }
-        public IAsyncCommand SaveCommand { get; private set; }
+        public ICommand CreateNewOrderItemCommand { get; }
+        public IAsyncCommand SaveCommand { get; }
 
         public CreateNewOrderViewModel(
-            IMessenger messenger, 
-            ICustomerListService customerListService, 
+            IMessenger messenger,
+            ICustomerListService customerListService,
             IOrderDetailService orderDetailService,
             IProductListService productListService)
         {
@@ -64,7 +63,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
         public async Task Boot()
         {
             OrderItems = new ObservableCollection<OrderItemViewModel>();
-            
+
             var customerTask = Async(() => _customerListService.GetCustomers());
             var productTask = Async(() => _productListService.GetProducts());
 
@@ -78,6 +77,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
         {
             OrderItems.Add(new OrderItemViewModel());
         }
+
         private async Task Save()
         {
             var orderItems = OrderItems.Select(x => new OrderItem(x.Product.Id, x.Amount)).ToArray();

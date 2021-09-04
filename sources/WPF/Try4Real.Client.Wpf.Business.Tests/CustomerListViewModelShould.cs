@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Messaging;
-using Moq;
-using NFluent;
 using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
 using Try4Real.Client.Wpf.Business.ViewModels.Users;
 using Try4Real.EndPoint.Contracts;
-using Xunit;
 
 namespace Try4Real.Client.Wpf.Business.Tests
 {
@@ -41,15 +36,14 @@ namespace Try4Real.Client.Wpf.Business.Tests
         public void be_loading_when_booting()
         {
             // Arrange
-            _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(() =>
-            {
+            _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(() => {
                 Wait();
                 return SOME_OTHER_CUSTOMERS;
             });
 
             // Acts
             var bootTask = _customerListViewModel.Boot();
- 
+
             // Asserts
             Check.That(_customerListViewModel.IsLoading).IsTrue();
             EndLoad(bootTask);
@@ -72,7 +66,7 @@ namespace Try4Real.Client.Wpf.Business.Tests
         public void send_a_message_to_display_customer_details_when_opening_customer_details()
         {
             // Arrange
-            _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(SOME_CUSTOMERS.Union(new[] {A_CUSTOMER}));
+            _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(SOME_CUSTOMERS.Union(new[] { A_CUSTOMER }));
             var expectedMessage = new DisplayCustomerDetailsMessage(A_CUSTOMER.Id);
 
             // Acts
@@ -87,21 +81,20 @@ namespace Try4Real.Client.Wpf.Business.Tests
         public void be_loading_when_refreshing_the_displayed_customers()
         {
             // Arrange
-            _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(() =>
-            {
+            _customerListServiceMock.Setup(x => x.GetCustomers()).Returns(() => {
                 Wait();
                 return SOME_OTHER_CUSTOMERS;
             });
 
             // Acts
-            var refreshTask =_customerListViewModel.RefreshCommand.ExecuteAsync();
-            
+            var refreshTask = _customerListViewModel.RefreshCommand.ExecuteAsync();
+
             // Asserts
             Check.That(_customerListViewModel.IsLoading).IsTrue();
             EndLoad(refreshTask);
             Check.That(_customerListViewModel.IsLoading).IsFalse();
         }
-        
+
         [Fact]
         public void update_the_displayed_customers_when_refresh_invoked()
         {
@@ -123,8 +116,8 @@ namespace Try4Real.Client.Wpf.Business.Tests
 
             _customerListViewModel.DeleteCustomerCommand.ExecuteAsync(customerToDelete);
 
-            _dialogServiceMock.Verify(x=> x.AskQuestion(
-                "Delete customer", 
+            _dialogServiceMock.Verify(x => x.AskQuestion(
+                "Delete customer",
                 "Are you sure to delete the customer 'MARTIN jean' ?"
             ), Times.Once);
         }
@@ -161,7 +154,7 @@ namespace Try4Real.Client.Wpf.Business.Tests
             _customerListViewModel.DeleteCustomerCommand.ExecuteAsync(customerToDelete).Wait();
 
             // Asserts
-            _customerListServiceMock.Verify(x=>x.DeleteCustomer(customerToDelete.Id), Times.Once);
+            _customerListServiceMock.Verify(x => x.DeleteCustomer(customerToDelete.Id), Times.Once);
         }
 
         // ----- Private methods
@@ -169,6 +162,7 @@ namespace Try4Real.Client.Wpf.Business.Tests
         {
             _manualResetEvent.WaitOne();
         }
+
         private void EndLoad(Task bootTask)
         {
             _manualResetEvent.Set();
@@ -183,22 +177,19 @@ namespace Try4Real.Client.Wpf.Business.Tests
 
         // ----- Data
         private readonly ManualResetEvent _manualResetEvent = new ManualResetEvent(false);
-        private readonly IEnumerable<CustomerListItem> SOME_CUSTOMERS = new List<CustomerListItem>
-        {
+        private readonly IEnumerable<CustomerListItem> SOME_CUSTOMERS = new List<CustomerListItem> {
             new CustomerListItem(),
             new CustomerListItem(),
             new CustomerListItem(),
         };
-        private readonly IEnumerable<CustomerListItem> SOME_OTHER_CUSTOMERS = new[]
-        {
+        private readonly IEnumerable<CustomerListItem> SOME_OTHER_CUSTOMERS = new[] {
             new CustomerListItem(),
             new CustomerListItem(),
             new CustomerListItem(),
             new CustomerListItem(),
         };
-        private readonly IEnumerable<CustomerListItem> INITIAL_CUSTOMERS = new[]
-        {
-            new CustomerListItem{Id = Guid.NewGuid()},
+        private readonly IEnumerable<CustomerListItem> INITIAL_CUSTOMERS = new[] {
+            new CustomerListItem { Id = Guid.NewGuid() },
             new CustomerListItem(),
         };
         private readonly CustomerListItem A_CUSTOMER = new CustomerListItem { Id = Guid.NewGuid() };

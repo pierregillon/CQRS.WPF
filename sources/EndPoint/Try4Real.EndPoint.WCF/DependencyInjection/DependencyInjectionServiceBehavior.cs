@@ -10,13 +10,10 @@ namespace Try4Real.EndPoint.WCF.DependencyInjection
     {
         public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
         {
-            foreach (ChannelDispatcherBase cdb in serviceHostBase.ChannelDispatchers)
-            {
-                ChannelDispatcher cd = cdb as ChannelDispatcher;
-                if (cd != null)
-                {
-                    foreach (EndpointDispatcher ed in cd.Endpoints)
-                    {
+            foreach (var cdb in serviceHostBase.ChannelDispatchers) {
+                var cd = cdb as ChannelDispatcher;
+                if (cd != null) {
+                    foreach (var ed in cd.Endpoints) {
                         ed.DispatchRuntime.InstanceProvider = new DependencyInjectionInstanceProvider(serviceDescription.ServiceType);
                     }
                 }

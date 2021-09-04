@@ -13,27 +13,21 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
         private readonly IMessenger _messenger;
         private readonly IOrderListService _orderListService;
 
-        public string Title
-        {
-            get { return "Order list"; }
-        }
-        public bool CanClose
-        {
-            get { return false; }
-        }
+        public string Title => "Order list";
+        public bool CanClose => false;
         public ObservableCollection<OrderListItem> Orders
         {
-            get { return GetNotifiableProperty<ObservableCollection<OrderListItem>>("Orders"); }
-            private set { SetNotifiableProperty("Orders", value); }
+            get => GetNotifiableProperty<ObservableCollection<OrderListItem>>("Orders");
+            private set => SetNotifiableProperty("Orders", value);
         }
         public OrderListItem SelectedOrder
         {
-            get { return GetNotifiableProperty<OrderListItem>("SelectedOrder"); }
-            set { SetNotifiableProperty("SelectedOrder", value); }
+            get => GetNotifiableProperty<OrderListItem>("SelectedOrder");
+            set => SetNotifiableProperty("SelectedOrder", value);
         }
 
-        public ICommand CreateOrderCommand { get; private set; }
-        public IAsyncCommand RefreshCommand { get; private set; }
+        public ICommand CreateOrderCommand { get; }
+        public IAsyncCommand RefreshCommand { get; }
         public ICommand OpenOrderDetailCommand { private set; get; }
 
         public OrderListViewModel(IMessenger messenger, IOrderListService orderListService)
@@ -56,6 +50,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Orders
             var orderListItems = await Async(() => _orderListService.GetOrders());
             Orders = new ObservableCollection<OrderListItem>(orderListItems);
         }
+
         private void CreateOrder()
         {
             _messenger.Send(new CreateNewOrderMessage());

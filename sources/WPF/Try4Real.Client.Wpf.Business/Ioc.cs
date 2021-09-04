@@ -2,7 +2,6 @@
 using SimpleInjector;
 using Try4Real.Client.Wpf.Business.Dialog;
 using Try4Real.Client.Wpf.Business.Services;
-using Try4Real.Client.Wpf.Business.ViewModels;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 using Try4Real.Client.Wpf.Business.ViewModels.Main;
 using Try4Real.Client.Wpf.Business.ViewModels.Orders;
@@ -13,17 +12,11 @@ namespace Try4Real.Client.Wpf.Business
     public class Ioc
     {
         private static readonly Ioc _instance = new Ioc();
-        public static Ioc Instance
-        {
-            get { return _instance; }
-        }
+        public static Ioc Instance => _instance;
 
         private readonly Container _container;
 
-        public Ioc()
-        {
-            _container = new Container();
-        }
+        public Ioc() => _container = new Container();
 
         public void Init(IServiceRegistry serviceRegistry, IDialogService dialogService)
         {
@@ -48,9 +41,6 @@ namespace Try4Real.Client.Wpf.Business
             _container.RegisterInstance(dialogService);
         }
 
-        public T GetInstance<T>() where T : class
-        {
-            return _container.GetInstance<T>();
-        }
+        public T GetInstance<T>() where T : class => _container.GetInstance<T>();
     }
 }

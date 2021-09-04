@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Try4Realse.Core.Application</RootNamespace>
-    <AssemblyName>Try4Realse.Core.Application</AssemblyName>
+    <AssemblyName>Try4Real.Core.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Commands\AddItemToOrder\AddItemToOrderCommand.cs" />
     <Compile Include="Commands\AddItemToOrder\AddItemToOrderCommandHandler.cs" />
-    <Compile Include="Commands\Base\ICommand.cs" />
-    <Compile Include="Commands\Base\ICommandHandler.cs" />
+    <Compile Include="Commands\_Base\ICommand.cs" />
+    <Compile Include="Commands\_Base\ICommandHandler.cs" />
     <Compile Include="Commands\CreateCustomer\CreateCustomerCommand.cs" />
     <Compile Include="Commands\CreateCustomer\CreateCustomerCommandHandler.cs" />
     <Compile Include="Commands\CreateOrder\CreateOrderCommand.cs" />

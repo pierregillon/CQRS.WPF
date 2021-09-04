@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Mvvm.Async;
 using Try4Real.Client.Wpf.Business.Dialog;
@@ -17,37 +16,28 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
         private readonly ICustomerListService _customerListService;
         private readonly IDialogService _dialogService;
 
-        public string Title
-        {
-            get { return "Customer list"; }
-        }
-        public bool CanClose
-        {
-            get { return false; }
-        }
-        public bool IsClosable
-        {
-            get { return false; }
-        }
+        public string Title => "Customer list";
+        public bool CanClose => false;
+        public bool IsClosable => false;
         public ObservableCollection<CustomerListItem> Customers
         {
-            get { return GetNotifiableProperty<ObservableCollection<CustomerListItem>>("Customers"); }
-            set { SetNotifiableProperty("Customers", value); }
+            get => GetNotifiableProperty<ObservableCollection<CustomerListItem>>("Customers");
+            set => SetNotifiableProperty("Customers", value);
         }
         public CustomerListItem SelectedCustomer
         {
-            get { return GetNotifiableProperty<CustomerListItem>("SelectedCustomer"); }
-            set { SetNotifiableProperty("SelectedCustomer", value); }
+            get => GetNotifiableProperty<CustomerListItem>("SelectedCustomer");
+            set => SetNotifiableProperty("SelectedCustomer", value);
         }
-        public IAsyncCommand CreateCustomerCommand { get; private set; }
-        public IAsyncCommand RefreshCommand { get; private set; }
-        public IAsyncCommand<CustomerListItem> DeleteCustomerCommand { get; private set; }
-        public ICommand<CustomerListItem> DisplayCustomerDetailsCommand { get; private set; }
+        public IAsyncCommand CreateCustomerCommand { get; }
+        public IAsyncCommand RefreshCommand { get; }
+        public IAsyncCommand<CustomerListItem> DeleteCustomerCommand { get; }
+        public ICommand<CustomerListItem> DisplayCustomerDetailsCommand { get; }
 
         // ----- Constructors
         public CustomerListViewModel(
-            IMessenger messenger, 
-            ICustomerListService customerListService, 
+            IMessenger messenger,
+            ICustomerListService customerListService,
             IDialogService dialogService)
         {
             _messenger = messenger;
@@ -74,11 +64,12 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
             _customerListService.CreateCustomer(
                 "FirstName" + random.Next(0, 50),
                 "LastName" + random.Next(0, 50),
-                DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, 50*365))),
+                DateTime.Now.Subtract(TimeSpan.FromDays(random.Next(0, 50 * 365))),
                 random.Next(100, 10000) + "@gmail.com");
 
             await RefreshCustomerList();
         }
+
         private async Task DeleteCustomer(CustomerListItem customerListItem)
         {
             var answer = _dialogService.AskQuestion("Delete customer", "Are you sure to delete the customer '" + customerListItem.FullName + "' ?");
@@ -87,6 +78,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
                 Customers.Remove(customerListItem);
             }
         }
+
         private void DisplayCustomerDetails(CustomerListItem customerListItem)
         {
             var item = customerListItem ?? SelectedCustomer;
@@ -94,6 +86,7 @@ namespace Try4Real.Client.Wpf.Business.ViewModels.Users
                 _messenger.Send(new DisplayCustomerDetailsMessage(item.Id));
             }
         }
+
         private async Task RefreshCustomerList()
         {
             var customers = await Async(() => _customerListService.GetCustomers());

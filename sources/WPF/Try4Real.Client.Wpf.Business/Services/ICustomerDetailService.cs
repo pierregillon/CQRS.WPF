@@ -10,19 +10,14 @@ namespace Try4Real.Client.Wpf.Business.Services
         void UpdateDetails(CustomerDetails customerDetails);
     }
 
-    public class CustomerDetailService: ICustomerDetailService
+    public class CustomerDetailService : ICustomerDetailService
     {
         private readonly ICustomerService _customerService;
 
-        public CustomerDetailService(ICustomerService customerService)
-        {
-            _customerService = customerService;
-        }
+        public CustomerDetailService(ICustomerService customerService) => _customerService = customerService;
 
-        public CustomerDetails GetCustomerDetails(Guid customerId)
-        {
-            return _customerService.GetCustomerDetails(customerId);
-        }
+        public CustomerDetails GetCustomerDetails(Guid customerId) => _customerService.GetCustomerDetails(customerId);
+
         public void UpdateDetails(CustomerDetails customerDetails)
         {
             _customerService.UpdateCustomerDetails(customerDetails);

@@ -1,5 +1,4 @@
 using System.Windows;
-using Try4Real.Client.Wpf.Business.ViewModels;
 using Try4Real.Client.Wpf.Business.ViewModels.Base;
 using Try4Real.Client.Wpf.Business.ViewModels.Orders;
 using Try4Real.Client.Wpf.Presentation.Views;
